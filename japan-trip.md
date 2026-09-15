@@ -7,7 +7,7 @@ Field Guide · living plan
 # Japan 2026
 
 Sep 25 – Oct 6 · Atif, Sunyia, Chris + Amalia
-Overviewstart here Preppre-go Tokyo25–28 Middle28–30 Kanazawa30–3 Tokyo3–6 Gearall Buy listshop   
+Overviewstart here Tokyo25–28 Middle28–30 Kanazawa30–3 Tokyo3–6 Gearall Buy listshop   
 Print allSave progressLoad progress
 Checklists, shopping notes and hotel addresses save in this browser. Save progress backs them up; the backup may contain personal details.
 
@@ -1277,136 +1277,6 @@ Hibiya · Barber + bar
 Cut with a craft beer in hand; English-speaking, the easiest to book as a foreigner.
 
 [Directions ↗](https://www.google.com/maps/search/?api=1&query=Frank%27s%20Barber%20and%20Beer%20Club%20Hibiya)- [ ]  Been
-
-Everything to do, buy, and pack before you fly. Deadlines come first; below them is an itemized shopping list you can tick off at the store, one item at a time.
-
-## ⏰ Do now · deadlines
-
-- [ ] Check every medication by active ingredient vs Japan's import rules. Check the exact formulation and quantity, including combination products. Avoid the "-D" decongestants (pseudoephedrine: Sudafed, Claritin-D, Zyrtec-D, Allegra-D). Include Amalia's cold/cough syrups.
-
-- [ ] If anyone takes ADHD stimulants or codeine: Check each active ingredient with Japan’s Narcotics Control Department. Vyvanse requires advance permission; it is not categorically prohibited. Adderall is treated differently. The required process depends on the substance. [Official guidance ↗](https://www.ncd.mhlw.go.jp/en/application2.html)
-
-- [ ] 🔴 Book middle-leg rooms (Karuizawa + Toyama, free cancellation) — both options remain under comparison. If holding both, record each actual cancellation deadline in Japan time before deciding.
-
-- [ ] Confirm the second Tokyo booking — Grand MONday Ueno Okachimachi was discussed and you agreed to book. Confirm completion before making another reservation. Actual rate, booking status and cancellation terms need confirmation.
-
-- [ ] 🔴 Confirm EN The House = washer-dryer + sleeps 4; confirm the booked Kanazawa property and its bedding. Forza does not universally require two rooms.
-
-- [ ] Weather cadence — check the 10-day forecast now, again around Sep 20 (when Sep 25–28 enters the reliable window), and 2 days before each leg. Live links are at the top of every phase tab.
-
-## 💊 Travel health kit · buy & pack
-
-One small pouch. Check ingredients and quantities against official import guidance; keep medicines in original packaging.
-
-- [ ] Ibuprofen (adult)
-
-- [ ] Acetaminophen / Tylenol (adult)
-
-- [ ] Children's acetaminophen/ibuprofen — in Amalia's usual dosing
-
-- [ ] Non-drowsy antihistamine — plain Claritin / Zyrtec / Allegra (NOT the "-D")
-
-- [ ] Anti-diarrheal (Imodium)
-
-- [ ] Motion-sickness tablets (Dramamine)
-
-- [ ] Oral rehydration packets (Pedialyte / LMNT)
-
-- [ ] Band-aids + blister plasters (Compeed)
-
-- [ ] Antiseptic (Neosporin / alcohol wipes)
-
-- [ ] Digital thermometer
-
-- [ ] Hand sanitizer
-
-- [ ] Daily prescription meds — trip's supply + a few extra days, in original bottles
-
-## 📄 Docs & admin
-
-- [ ] Passports for all three adults + Amalia's own passport
-
-- [ ] Allergy card in Japanese (if Amalia or anyone has food allergies)
-
-- [ ] Printed hotel names + addresses in Japanese (backup if a phone dies in a taxi)
-
-- [ ] Travel insurance sorted
-
-- [ ] Register on Visit Japan Web — immigration + customs + tax-free, done online in advance. Official site only: vjw.digital.go.jp or services.digital.go.jp/en/visit-japan-web/. It is free — any site charging a "processing fee" is fake. Register your wife and Amalia under your account using "register family travelling with you". Screenshot the 2D QR code before boarding. (Optional — paper forms are still accepted.)
-
-## 📱 Set up before you fly
-
-- [ ] Install Ubigi eSIM (over Wi-Fi, don't activate till you land); keep T-Mobile for your number + 2FA (data roaming OFF)
-
-- [ ] Confirm iPhone unlocked — Settings → General → About → Carrier Lock = "No SIM restrictions"
-
-- [ ] Suica/Pasmo in Apple Wallet (tap for trains, konbini, vending). Under-six fare exceptions apply: a child ticket is needed for her own reserved seat. [JR East guidance ↗](https://www.jreast.co.jp/en/multi/faq/)
-
-- [ ] Download offline Google Maps for Tokyo + Kanazawa for area reference. Offline walking and transit directions are unavailable; save key station exits and routes separately.
-
-## 🛒 Buy beforehand
-
-Almost all clothing is bought in Japan (see the Buy-list tab). Only these leave-the-house purchases matter:
-
-- [ ] Rain shell — Marmot PreCip Eco (~$60), day-one cover (or buy the Montbell Versalite in Tokyo)
-
-- [ ] 14" padded laptop sleeve (~$15) for the ThinkPad to ride in the Daylite
-
-- [ ] Shoes ✓ (XT-6) and trousers ✓ already done
-
-- [ ] Optional: 2–3 nice tees (A&F / Buck Mason) — otherwise buy tops in Japan
-
-- [ ] Empty travel tubes / silicone bottles (TSA-size) — for refilling sensitive-skin shaving cream and other products you can't easily swap for a local equivalent
-
-No plug adapter needed — Japan uses the same flat 2-prong as the US (100V; fine for chargers, weak for hair dryers).
-
-## 🎒 Pack from home · fit-critical
-
-- [ ] XT-6 shoes · 2 trousers · 2–3 tees + 1–2 quick-dry · 1 light layer · 2–3 days underclothes · sleep set · sunglasses
-
-- [ ] Bags: Patagonia ~45L (clothes, forwarded) + Osprey Daylite 20L (laptops on transit / daypack)
-
-- [ ] Tech: both laptops, phones, power bank (carry-on only), chargers + cables
-
-## 👶 Kid gear · buy before Japan
-
-- [ ] Lightweight foldable stroller — one-handed fold, light enough to carry up stairs
-
-- [ ] Stroller rain cover
-
-- [ ] Soft carrier — for temples, gravel, crowded trains, stairs (bring it AND the stroller)
-
-- [ ] Carabiner hooks — to hang bags off the stroller handle
-
-- [ ] Slip-on shoes for Amalia — velcro/elastic, no laces
-
-- [ ] Non-skid socks for Amalia — slippery ryokan/temple floors
-
-- [ ] Travel potty seat / disposable liners — older temples & parks still have squat toilets
-
-- [ ] Kid headphones
-
-- [ ] Small bag of quiet new toys — stickers, Water Wow books (shinkansen + long dinners)
-
-- [ ] A stash of her familiar snacks from home
-
-- [ ] Diapers/pull-ups — 2 days only, buy the rest in Japan (Merries/Moony, sized by kg — know her weight in kg)
-
-## 🧳 Everyday-practical (the stuff nobody warns you about)
-
-- [ ] Small trash / wet bag — Japan has almost no public bins; you carry your trash till you find one (the #1 surprise)
-
-- [ ] 3–4 small hand towels — restrooms often have no paper towel or dryer
-
-- [ ] Coin purse — ¥100 and ¥500 coins pile up fast
-
-- [ ] Good socks + a spare pair each (you're shoeless at temples, tatami restaurants, ryokan)
-
-- [ ] A few face masks (normal to wear if anyone's sniffly)
-
-- [ ] Compact umbrella per adult + a stroller clip-on (or buy ~¥500 at any konbini)
-
-- [ ] Cash from a 7-Eleven ATM on arrival
 
 booked locked shortlisted leading idea on radar TBD open buy there in Japan 
 Personal field guide · progress saves in this browser · export a backup to transfer progress
