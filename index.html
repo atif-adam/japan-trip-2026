@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Trip — Field Guide</title>
+<style>
+  :root{
+    --paper:#F1EEE6;
+    --paper-2:#FBFAF5;
+    --ink:#1C1C19;
+    --indigo:#213A54;
+    --indigo-soft:#2F5170;
+    --persimmon:#C0533A;
+    --ochre:#B0803A;
+    --teal:#3B7370;
+    --slate:#6E6A61;
+    --hair:#D8D2C4;
+    --shadow:0 1px 2px rgba(33,58,84,.06),0 4px 16px rgba(33,58,84,.05);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Roboto Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);line-height:1.55;
+    font-size:16px;
+  }
+  a{color:var(--indigo-soft);}
+
+  /* ---------- header ---------- */
+  header{
+    background:var(--indigo);color:#F3EFE6;
+    padding:18px 20px 0;position:sticky;top:0;z-index:20;
+    box-shadow:0 6px 18px rgba(20,34,50,.18);
+  }
+  .kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:#9FB4C8;margin:0 0 2px;
+  }
+  h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:26px;line-height:1.1;margin:0 0 2px;letter-spacing:.2px;
+  }
+  .dates{font-family:var(--mono);font-size:12.5px;color:#C4D2DE;margin:0 0 14px;}
+  .dates b{color:#F3EFE6;font-weight:600;}
+
+  /* ---------- rail nav ---------- */
+  nav.rail{
+    display:flex;gap:0;overflow-x:auto;overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding:0 2px 2px;margin:0 -2px;
+  }
+  nav.rail::-webkit-scrollbar{display:none;}
+  .station{
+    flex:0 0 auto;background:none;border:none;cursor:pointer;
+    padding:6px 4px 12px;min-width:74px;position:relative;
+    color:#9FB4C8;font-family:var(--sans);text-align:center;
+  }
+  .station .dot{
+    width:13px;height:13px;border-radius:50%;
+    background:var(--indigo);border:2.5px solid #6C8299;
+    margin:0 auto 7px;position:relative;z-index:2;transition:.2s;
+  }
+  /* the connecting line */
+  .station::before{
+    content:"";position:absolute;top:12px;left:-50%;width:100%;
+    height:2.5px;background:#3C566F;z-index:1;
+  }
+  .station:first-child::before{display:none;}
+  .station .lbl{display:block;font-size:12px;font-weight:600;color:#C4D2DE;line-height:1.15;}
+  .station .sub{display:block;font-family:var(--mono);font-size:9.5px;color:#7E93A8;margin-top:2px;letter-spacing:.02em;}
+  .station.active .dot{background:var(--persimmon);border-color:#E4B8A9;transform:scale(1.15);}
+  .station.active .lbl{color:#fff;}
+  .station.active .sub{color:#B6A0F0;color:#D9B7AB;}
+
+  /* ---------- main ---------- */
+  main{max-width:760px;margin:0 auto;padding:22px 16px 64px;}
+  .phase{display:none;animation:fade .25s ease;}
+  .phase.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+  .phase-intro{
+    font-family:var(--serif);font-size:17px;font-style:italic;color:var(--slate);
+    border-left:3px solid var(--persimmon);padding:2px 0 2px 14px;margin:0 0 22px;
+  }
+
+  /* ---------- weather tracker ---------- */
+  .weather{
+    background:linear-gradient(180deg,#EAF0F5 0%,#F4F1E9 100%);
+    border:1px solid #C9D6E0;border-radius:12px;
+    padding:13px 15px 12px;margin:0 0 24px;box-shadow:var(--shadow);
+  }
+  .wx-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .wx-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:700;}
+  .wx-temp{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--indigo);white-space:nowrap;}
+  .wx-body{font-size:14px;color:#3A3833;margin:7px 0 0;}
+  .wx-carry{font-size:13.5px;color:var(--persimmon);margin:7px 0 0;font-weight:600;}
+  .wx-links{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap;}
+  .wx-links a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;font-weight:600;text-decoration:none;color:var(--indigo-soft);white-space:nowrap;}
+  .wx-links a:hover{text-decoration:underline;}
+  .wx-stamp{font-family:var(--mono);font-size:9.5px;color:var(--slate);margin:8px 0 0;letter-spacing:.02em;}
+
+  /* ---------- in-tab section chips ---------- */
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px;}
+  .chips a{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;color:var(--indigo-soft);background:#EDE9DE;
+    border:1px solid var(--hair);border-radius:20px;padding:5px 11px;font-weight:700;
+  }
+  .chips a:hover{background:var(--indigo);color:#F3EFE6;border-color:var(--indigo);}
+
+  /* ---------- food blocks ---------- */
+  .food{background:var(--paper-2);border:1px solid var(--hair);border-radius:12px;
+    padding:4px 15px 10px;margin:0 0 12px;box-shadow:var(--shadow);}
+  .fd{padding:11px 0;border-bottom:1px dashed var(--hair);}
+  .fd:last-child{border-bottom:none;}
+  .fd-when{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--persimmon);font-weight:700;margin-bottom:5px;}
+  .fd-what{font-size:14.5px;color:#3A3833;margin:0;}
+  .fd-what b{color:var(--ink);}
+  .fd-note{font-size:13px;color:var(--slate);margin:5px 0 0;font-style:italic;}
+
+  .keybox{background:#EDF2F6;border:1px solid #C9D6E0;border-left:4px solid var(--indigo);
+    border-radius:8px;padding:12px 14px;margin:0 0 18px;}
+  .keybox p{margin:0 0 6px;font-size:14px;color:#33465A;}
+  .keybox p:last-child{margin-bottom:0;}
+
+  .anchor-pad{scroll-margin-top:150px;}
+
+  @media print{
+    header{position:static;} nav.rail,.chips{display:none;}
+    .phase{display:block !important;page-break-after:always;}
+  }
+
+  h2.sec{
+    font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--indigo);margin:30px 0 12px;display:flex;align-items:center;gap:10px;
+  }
+  h2.sec::after{content:"";flex:1;height:1px;background:var(--hair);}
+  h3.subsec{
+    font-family:var(--sans);font-size:13px;font-weight:700;color:var(--slate);
+    margin:18px 0 10px;letter-spacing:.01em;
+  }
+
+  /* ---------- cards ---------- */
+  .card{
+    background:var(--paper-2);border:1px solid var(--hair);border-radius:12px;
+    padding:14px 15px;margin:0 0 10px;box-shadow:var(--shadow);
+  }
+  .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card-name{font-family:var(--serif);font-size:18px;font-weight:600;margin:0;line-height:1.2;}
+  .card-meta{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--slate);margin:3px 0 0;text-transform:uppercase;}
+  .card-why{font-size:14.5px;color:#3A3833;margin:8px 0 0;}
+  .card-note{font-size:13px;color:var(--persimmon);margin:7px 0 0;font-weight:600;}
+  .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:11px;gap:12px;}
+  .maps{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;text-decoration:none;color:var(--indigo-soft);font-weight:600;white-space:nowrap;}
+  .maps:hover{text-decoration:underline;}
+  .tick{font-family:var(--mono);font-size:11px;color:var(--slate);display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;text-transform:uppercase;letter-spacing:.05em;}
+  .tick input{width:15px;height:15px;accent-color:var(--indigo);cursor:pointer;}
+
+  /* ---------- badges ---------- */
+  .badge{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 8px;border-radius:20px;white-space:nowrap;flex:0 0 auto;margin-top:2px;}
+  .b-booked{background:var(--indigo);color:#EDE7DA;}
+  .b-short{background:var(--persimmon);color:#fff;}
+  .b-idea{background:transparent;color:var(--slate);border:1px solid var(--hair);}
+  .b-tbd{background:transparent;color:var(--ochre);border:1px dashed var(--ochre);}
+  .b-buy{background:transparent;color:var(--teal);border:1px solid var(--teal);}
+  .b-owned{background:#E7E2D6;color:var(--slate);}
+  .b-24h{background:var(--teal);color:#fff;}
+  .b-hours{background:transparent;color:var(--indigo-soft);border:1px solid #B9C7D4;}
+
+  /* ---------- checklist ---------- */
+  ul.checklist{list-style:none;padding:0;margin:0;}
+  ul.checklist li{
+    background:var(--paper-2);border:1px solid var(--hair);border-radius:10px;
+    padding:11px 13px;margin:0 0 8px;display:flex;gap:11px;align-items:flex-start;font-size:14.5px;
+  }
+  ul.checklist li input{width:17px;height:17px;margin-top:1px;accent-color:var(--persimmon);cursor:pointer;flex:0 0 auto;}
+  ul.checklist li.done label{text-decoration:line-through;color:var(--slate);}
+  ul.checklist label{cursor:pointer;}
+
+  .plain{font-size:14.5px;color:#3A3833;margin:0 0 9px;}
+  .plain b{color:var(--ink);}
+  .legend{font-family:var(--mono);font-size:10.5px;color:var(--slate);margin:20px 0 0;line-height:1.9;letter-spacing:.02em;}
+  .legend .badge{margin-right:2px;}
+
+  footer{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--slate);padding:8px 16px 40px;letter-spacing:.05em;}
+
+  @media(min-width:620px){
+    h1{font-size:30px;}
+    main{padding-top:28px;}
+    .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .cards-2 .card{margin:0;}
+  }
+
+/* Enhanced presentation; existing phase content remains intact. */
+:root{--paper:#F5F2EB;--paper-2:#FFFEFA;--ink:#243238;--indigo:#223D4A;--persimmon:#B24E38;--slate:#59625E;--hair:#DDDCD2}
+body{font-size:16px}header{padding:20px max(20px,calc((100vw - 1120px)/2)) 0}.header-year{font:400 15px var(--mono);color:#AFC2BE;margin-left:8px}h1{font-size:32px!important}.dates{margin-top:6px}.station{min-width:95px;min-height:62px}.station .dot{display:block}.station .sub{font-size:11px}.station .lbl{font-size:14px}.rail{scrollbar-width:thin!important}
+main{max-width:1120px;padding:28px 24px 72px}.phase-intro{font-size:20px;max-width:800px}.sec{margin-top:32px!important}.hero{background:var(--indigo);color:#fff;padding:44px;border-radius:18px;position:relative;overflow:hidden}.hero:after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:#AF5944;right:50px;top:40px;opacity:.5;pointer-events:none}.hero>*{position:relative;z-index:1}.hero h2{font:normal 46px/1.12 var(--serif);margin:18px 0}.hero p{max-width:650px}.hero-note{color:#D7E1DC}.eyebrow{font:600 11px/1.6 var(--mono);letter-spacing:.13em}.route{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 36px}.route div{border-top:3px solid #78978B;padding:12px 0}.route b,.route span{display:block}.route span{font-size:13px;color:var(--slate);margin-top:5px}.decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.decision{padding:22px;border:1px solid var(--hair);border-radius:12px;background:var(--paper-2)}.number{color:var(--persimmon);font:18px var(--mono)}h3{font:600 23px var(--serif);margin:10px 0}.decision p,.stay-row p,.transfer-list p{font-size:15px}.decision button{border:0;background:none;padding:10px 0;color:var(--indigo);font-weight:bold;text-align:left}.stay-row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid var(--hair);padding:22px 0}.stay-row h3{margin:6px 0}.stay-row p{margin:4px 0;max-width:730px}.status{align-self:flex-start;white-space:nowrap;background:#DFEBE4;color:#234F42;border-radius:20px;padding:6px 10px;font-size:12px}.status.open{background:#F4E5D6;color:#754522}.small{font-size:12px;color:var(--slate)}.transfer-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.transfer-list p{background:var(--paper-2);padding:20px;border-radius:10px;margin:0}.reference-note{border:1px solid var(--hair);border-radius:10px;padding:16px;margin:22px 0}.reference-note summary{cursor:pointer;font-weight:600;min-height:28px}.card{padding:20px;box-shadow:none}.card-name{font-size:22px}.card-meta,.maps,.tick{font-size:12px}.card-why{font-size:15.5px}.badge{font-size:11px}.card-foot{min-height:44px}.tick{min-height:44px;padding:8px}.tick input,ul.checklist li input{width:22px;height:22px}.maps{display:inline-flex;align-items:center;min-height:44px}ul.checklist li{padding:14px;font-size:16px}ul.checklist label{min-height:32px;padding:3px 0}.chips a{min-height:40px;display:inline-flex;align-items:center;font-size:12px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.toolbar input{flex:1;min-width:180px}.toolbar input,.toolbar button,.toolbar label{padding:12px;border:1px solid #AAB7B0;border-radius:8px;background:var(--paper-2);font:14px var(--sans)}.toolbar button,.toolbar label{cursor:pointer}.search-result{padding:16px;margin-bottom:12px;background:var(--paper-2);border:1px solid var(--hair);border-radius:10px}.search-result h3{font-size:22px}.search-result button{padding:10px;border:0;background:#E2EBE6;border-radius:6px;cursor:pointer}.filter-hidden{display:none!important}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #B75B3A;outline-offset:4px}.storage-note{font-size:12px;color:var(--slate)}#search-results:empty{display:none}
+@media(max-width:700px){main{padding:18px 16px 60px}header{padding:14px 16px 0}.hero{padding:26px}.hero h2{font-size:35px}.hero:after{width:100px;height:100px;right:-30px;top:25px}.route{grid-template-columns:1fr 1fr}.decision-grid,.transfer-list{grid-template-columns:1fr}.stay-row{flex-direction:column;gap:8px}.card-head{flex-wrap:wrap}.cards-2{display:block}.cards-2 .card{margin-bottom:12px}.wx-temp{font-size:19px}.station{min-width:88px}.toolbar label{display:inline-block}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+@media print{header{position:static;background:white;color:black;box-shadow:none;padding:0}header .dates,header .dates b{color:black}.rail,.toolbar,.chips,.tick,.storage-note,.decision button,#search-results{display:none!important}.phase{display:block!important;animation:none;break-before:page}.phase:first-of-type{break-before:auto}.hero{background:white;color:black;padding:0}.hero:after{display:none}.hero-note{color:black}.card,.decision,.stay-row{break-inside:avoid}.cards-2,.decision-grid{display:block}.card{margin:10px 0!important}.route{grid-template-columns:repeat(4,1fr)}main{max-width:none;padding:0}a{color:black}.badge{color:black!important;background:white!important}details>*{display:block!important}}
+
+
+.quick-tools{margin:20px 0 28px;border:1px solid #BDCFC5;border-radius:14px;background:#ECF2ED;padding:18px}.quick-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.quick-head label{margin-left:auto;font-size:13px}.quick-head select{padding:10px;background:white;border:1px solid #AAB7B0;border-radius:8px;max-width:100%}.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.quick-actions button{min-height:48px;padding:10px;border:1px solid #8EABA0;border-radius:8px;background:#fff;font:600 14px var(--sans);cursor:pointer}.quick-actions button[aria-expanded=true]{background:var(--indigo);color:white}.quick-panel{margin-top:14px;padding:14px;border-top:1px solid #BDCEC3}.quick-panel summary{font-weight:bold;cursor:pointer}.quick-panel p{font-size:15px}.quick-panel [data-city]{padding:8px 0}.quick-panel a,.outing-grid a{display:inline-flex;align-items:center;min-height:44px}.outing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.outing-grid .card{border-top:4px solid #78978B}.outing-tag{font:11px/1.5 var(--mono);letter-spacing:.06em;color:#52665C}.outing-grid .card-name{font-size:26px}.outing-link{padding:14px;background:#E6EEE6;border-radius:8px}.buy-record{margin:12px 0;border:1px solid var(--hair);border-radius:10px;background:var(--paper-2);padding:16px}.buy-record summary{min-height:44px;font:600 20px var(--serif);cursor:pointer}.record-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.edit-field{display:flex;flex-direction:column;gap:7px;margin:9px 0;min-width:0;font-size:13px}.edit-field input,.edit-field select{width:100%;min-height:44px;min-width:0;padding:10px;border:1px solid #AAB7B0;border-radius:6px;font:16px var(--sans);background:white;color:var(--ink)}.early-tag{display:inline-block;background:#F4E5D6;color:#754522;font:12px var(--sans);padding:5px 8px;border-radius:20px;margin-left:8px}.print-value{display:none}.hero h2{letter-spacing:-.02em}.anchor-pad{scroll-margin-top:190px!important}
+@media(max-width:850px){.outing-grid{grid-template-columns:1fr}.quick-head label{margin-left:0}.quick-actions{grid-template-columns:1fr}.record-grid{grid-template-columns:1fr}.quick-tools{padding:14px}.quick-actions button{text-align:left}}
+@media print{.quick-actions,.quick-head select,.quick-head label{display:none!important}.quick-panel{display:block!important}.quick-panel [data-city]{display:block!important}.buy-record,.quick-panel{content-visibility:visible}.buy-record>*,.quick-panel>*{display:block!important}.record-grid{display:grid!important}.outing-grid{display:block}.edit-field input,.edit-field select{display:none!important}.print-value{display:block!important;white-space:pre-wrap}.quick-tools{break-inside:auto}.buy-record{break-inside:avoid}.quick-panel [hidden]{display:block!important}}
+</style>
+<noscript><style>.phase{display:block!important}</style></noscript></head>
+<body>
+
+<header>
+  <p class="kicker">Field Guide · living plan</p>
+  <h1>Japan <span class="header-year">2026</span></h1>
+  <p class="dates"><b>Sep 25 – Oct 6</b> · Atif, Sunyia, Chris + Amalia</p>
+  <nav class="rail" id="rail" aria-label="Guide sections"><button class="station active" data-tab="p0"><span class="dot"></span><span class="lbl">Overview</span><span class="sub">start here</span></button>
+    <button class="station" data-tab="p7"><span class="dot"></span><span class="lbl">Prep</span><span class="sub">pre-go</span></button>
+    <button class="station" data-tab="p1"><span class="dot"></span><span class="lbl">Tokyo</span><span class="sub">25–28</span></button>
+    <button class="station" data-tab="p2"><span class="dot"></span><span class="lbl">Middle</span><span class="sub">28–30</span></button>
+    <button class="station" data-tab="p3"><span class="dot"></span><span class="lbl">Kanazawa</span><span class="sub">30–3</span></button>
+    <button class="station" data-tab="p4"><span class="dot"></span><span class="lbl">Tokyo</span><span class="sub">3–6</span></button>
+    <button class="station" data-tab="p5"><span class="dot"></span><span class="lbl">Gear</span><span class="sub">all</span></button>
+    <button class="station" data-tab="p6"><span class="dot"></span><span class="lbl">Buy list</span><span class="sub">shop</span></button>
+  </nav>
+</header>
+
+<main><div class="toolbar"><input id="guide-search" type="search" placeholder="Find a place, food or item…" aria-label="Search the full guide"><button id="print-guide">Print all</button><button id="export-progress">Save progress</button><label for="import-progress">Load progress</label><input hidden type="file" id="import-progress" accept="application/json"></div><p class="storage-note" id="progress-status" role="status">Checklists, shopping notes and hotel addresses save in this browser. Save progress backs them up; the backup may contain personal details.</p><div id="search-results" aria-live="polite"></div>
+<section class="phase active" id="p0"><section class="quick-tools" aria-label="Practical shortcuts"><div class="quick-head"><b>A good next step</b><label for="quick-city">Where are you?</label><select id="quick-city"><option value="asakusa">Tokyo · Asakusa</option><option value="karuizawa">Karuizawa · option</option><option value="toyama">Toyama · option</option><option value="kanazawa">Kanazawa</option><option value="return">Tokyo · Return stay</option></select></div><div class="quick-actions"><button data-quick="food" aria-expanded="false" aria-controls="quick-food">Find food</button><button data-quick="rain" aria-expanded="false" aria-controls="quick-rain">Rain alternative</button><button data-quick="hotel" aria-expanded="false" aria-controls="quick-hotel">Back to our hotel</button></div><details class="quick-panel" id="quick-food"><summary>Food options</summary><div data-city="asakusa"><p class="eyebrow">ASAKUSA</p><h3>MISOJYU · Asakusa main shop</h3><p>1-7-5 Asakusa. Morning 08:00–10:00; regular menu 10:00–16:00. Seating, stroller space and today’s queue are not confirmed.</p><a href="https://misojyu.jp/" target="_blank" rel="noopener">Official hours ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=MISOJYU%201-7-5%20Asakusa" target="_blank" rel="noopener">Find this branch ↗</a><p><b>Outside those hours:</b> use your existing family-restaurant/konbini options and check the chosen branch live.</p></div><div data-city="return"><p class="eyebrow">RETURN</p><h3>MISOJYU · Tokyo Solamachi branch</h3><p>Solamachi 1F, 1-1-2 Oshiage. Morning 09:00–10:00; regular menu 10:00–22:00. Useful if you are already near Skytree; this is not a nearest-to-hotel recommendation. Seating/stroller access unverified.</p><a href="https://misojyu.jp/" target="_blank" rel="noopener">Official hours ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=MISOJYU%20Tokyo%20Solamachi" target="_blank" rel="noopener">Find this branch ↗</a><p><b>Near your return hotel:</b> the property is still awaiting confirmation. Use the Tokyo food library until its location is settled.</p></div><div data-city="kanazawa"><p class="eyebrow">KANAZAWA</p><h3>DINING TSUZUMI · Hotel Kanazawa</h3><p>1-1 Horikawa-shinmachi, near Kanazawa Station. Tourism listing: breakfast 07:00–10:00, lunch 11:30–14:30, dinner 17:00–22:00; last orders earlier. Listed family-friendly with 95 seats. High chairs, stroller space, price and availability still need checking.</p><a href="https://visitkanazawa.jp/en/restaurants/detail_52333.html" target="_blank" rel="noopener">Official tourism listing ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=DINING%20TSUZUMI%20Hotel%20Kanazawa" target="_blank" rel="noopener">Find this restaurant ↗</a></div><div data-city="karuizawa"><p class="eyebrow">KARUIZAWA</p><h3>Keep food close to the chosen hotel</h3><p>Hotel breakfast and the bakeries/cafés in your existing middle-leg list remain options. A specific branch is not yet verified; the hotel location is still undecided.</p><a href="#p2">Open middle-leg food options →</a></div><div data-city="toyama"><p class="eyebrow">TOYAMA</p><h3>Station food or your seafood shortlist</h3><p>Use Toyama Station as the area to investigate. A specific restaurant, opening time and child seating are not yet verified.</p><a href="#p2">Open middle-leg food options →</a></div></details><details class="quick-panel" id="quick-rain"><summary>Rain alternatives</summary><div data-city="asakusa"><p class="eyebrow">ASAKUSA</p><h3>Indoor browsing nearby, or a play outing</h3><p>Use the existing Asakusa ROX option for local browsing. Tokyo Toy Museum is a separate journey to Yotsuya, 10:00–16:00 and closed Thursdays; check tickets and the calendar.</p><a href="#family-toys">Read the Toy Museum card →</a></div><div data-city="return"><p class="eyebrow">RETURN</p><h3>Sanrio NISHIGINZA or Tokyo Toy Museum</h3><p>Sanrio fits a Ginza/Yurakucho outing. The Toy Museum is a separate Yotsuya destination. Choose one based on where you are and whether you want shopping or play.</p><a href="#family-sanrio">Hello Kitty details →</a> · <a href="#family-toys">Toy Museum details →</a></div><div data-city="kanazawa"><p class="eyebrow">KANAZAWA</p><h3>Stay with your existing indoor options</h3><p>Station food and shops can replace outdoor wandering. The 21st Century Museum is another original option; confirm that day’s exhibitions, access and hours before traveling there.</p><a href="#p3">Open Kanazawa options →</a></div><div data-city="karuizawa"><p class="eyebrow">KARUIZAWA</p><h3>Use a slow hotel-and-café day</h3><p>Select a nearby indoor café after the hotel is chosen. Avoid assuming every outdoor stop has an easy indoor replacement or transport connection.</p><a href="#p2">Compare both middle-leg options →</a></div><div data-city="toyama"><p class="eyebrow">TOYAMA</p><h3>Toyama Glass Art Museum</h3><p>An indoor option already in the plan. Check the current calendar and exhibitions; the regular closure is the first and third Wednesday, with exceptions.</p><a href="https://toyama-glass-art-museum.jp/en/visitor/" target="_blank" rel="noopener">Museum visit details ↗</a></div></details><details class="quick-panel" id="quick-hotel"><summary>Your hotel</summary><div data-city="asakusa"><h3>EN The House Asakusa Nitenmon</h3><p>Booked according to the group; verify the exact address against your confirmation.</p><label class="edit-field" for="field-hotel-asakusa"><span>Confirmed hotel name + address (Japanese address is useful)</span><input id="field-hotel-asakusa" data-field="hotel-asakusa" type="text" placeholder="Paste from your reservation"></label><p class="hotel-route" data-hotel-city="asakusa" data-default="EN The House Asakusa Nitenmon"></p><p class="small">Opens Maps with the destination only; choose and check the live route there. No location is read by this guide.</p></div><div data-city="kanazawa"><h3>Hotel to confirm</h3><p>Chris reported booking the futon option near the station. Exact property and address need confirmation.</p><label class="edit-field" for="field-hotel-kanazawa"><span>Confirmed hotel name + address (Japanese address is useful)</span><input id="field-hotel-kanazawa" data-field="hotel-kanazawa" type="text" placeholder="Paste from your reservation"></label><p class="hotel-route" data-hotel-city="kanazawa" data-default=""></p><p class="small">Opens Maps with the destination only; choose and check the live route there. No location is read by this guide.</p></div><div data-city="return"><h3>Hotel to confirm</h3><p>Grand MONday Ueno Okachimachi was discussed; completion is not verified. Enter the hotel from the confirmation below.</p><label class="edit-field" for="field-hotel-return"><span>Confirmed hotel name + address (Japanese address is useful)</span><input id="field-hotel-return" data-field="hotel-return" type="text" placeholder="Paste from your reservation"></label><p class="hotel-route" data-hotel-city="return" data-default=""></p><p class="small">Opens Maps with the destination only; choose and check the live route there. No location is read by this guide.</p></div><div data-city="karuizawa"><h3>Hotel to confirm</h3><p>This destination remains an option. Enter a hotel only after choosing and verifying it.</p><label class="edit-field" for="field-hotel-karuizawa"><span>Confirmed hotel name + address (Japanese address is useful)</span><input id="field-hotel-karuizawa" data-field="hotel-karuizawa" type="text" placeholder="Paste from your reservation"></label><p class="hotel-route" data-hotel-city="karuizawa" data-default=""></p><p class="small">Opens Maps with the destination only; choose and check the live route there. No location is read by this guide.</p></div><div data-city="toyama"><h3>Hotel to confirm</h3><p>This destination remains an option. Enter a hotel only after choosing and verifying it.</p><label class="edit-field" for="field-hotel-toyama"><span>Confirmed hotel name + address (Japanese address is useful)</span><input id="field-hotel-toyama" data-field="hotel-toyama" type="text" placeholder="Paste from your reservation"></label><p class="hotel-route" data-hotel-city="toyama" data-default=""></p><p class="small">Opens Maps with the destination only; choose and check the live route there. No location is read by this guide.</p></div></details><p class="small">Food details checked September 15. These are selected options, not live “open now” results. For dietary restrictions, check the restaurant directly.</p></section>
+<div class="hero"><p class="eyebrow">YOUR FAMILY FIELD GUIDE</p><h2>A little wandering.<br>A plan to come back to.</h2><p>September 25 – October 6, 2026 · 11 nights</p><p class="hero-note">Your existing route and options, with the practical details brought forward.</p></div>
+<div class="route" aria-label="Trip route"><div><b>Tokyo</b><span>Sep 25–28 · 3 nights</span></div><div><b>Karuizawa / Toyama</b><span>Sep 28–30 · 2 nights</span></div><div><b>Kanazawa</b><span>Sep 30–Oct 3 · 3 nights</span></div><div><b>Tokyo</b><span>Oct 3–6 · 3 nights</span></div></div>
+<p class="shared-tastes">Shared family interests · craft, vintage shopping, food, cafés and a little play. These outings stay optional.</p><h2 class="sec">Outings to choose from</h2><p class="plain">Pick a cluster when it suits the day. Each has one main stop, an optional extra and an easy point to pause. Suggested outing lengths include browsing and a break; they are not measured journey times.</p><div class="outing-grid"><article class="card" id="outing-craft"><h3 class="card-name">Craft & coffee in Kuramae</h3><div class="card-why"><p class="outing-tag">ASAKUSA STAY · OPTIONAL · ALLOW A RELAXED HALF-DAY</p><p><b>Main stop:</b> Kakimori — choose a notebook cover, paper and binding.</p><p><b>Nearby extra:</b> browse Kuramae’s craft shops. Add Kappabashi only if everyone wants more walking.</p><p><b>Pause:</b> choose a café with available seating in Kuramae; no particular café is confirmed.</p><p><b>Easy finish:</b> return to the Asakusa base after Kakimori; skip the extra district.</p><p class="card-note">Custom notebooks: weekends/public holidays require an appointment; weekdays do not. Orders close at 17:30. Shop entry itself needs no appointment.</p><a href="https://kakimori.com/en/pages/order-notebook" target="_blank" rel="noopener">Notebook service &amp; reservations ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Kakimori%20Tokyo" target="_blank" rel="noopener">Find Kakimori ↗</a></div></article><article class="card" id="outing-americana"><h3 class="card-name">Americana & a proper haircut</h3><div class="card-why"><p class="outing-tag">HARAJUKU · OPTIONAL · ALLOW A HALF-DAY</p><p><b>Main stop:</b> Berberjin, with one or two shops from your existing shortlist.</p><p><b>Nearby extra:</b> Wolfman barber, only with the correct branch and appointment confirmed.</p><p><b>Pause:</b> a seated café/lunch break before deciding on another shop.</p><p><b>Easy finish:</b> stop after the first shop. Split shopping time only if all adults agree.</p><p class="card-note">Barber, denim and notebooks are possible signature experiences, not reservations. Record the exact appointment or collection time below.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Berberjin%20Harajuku" target="_blank" rel="noopener">Find Berberjin ↗</a></div></article><article class="card" id="outing-antiques"><h3 class="card-name">Antiques, lunch & Hello Kitty</h3><div class="card-why"><p class="outing-tag">RETURN TOKYO · OCTOBER 4 OPTION</p><p><b>Main stop:</b> Oedo Antique Market at Tokyo International Forum, scheduled 09:00–16:00.</p><p><b>Amalia’s stop:</b> Sanrio NISHIGINZA, after it opens at 11:00.</p><p><b>Pause:</b> lunch in the Yurakucho/Ginza area before deciding whether to browse further; select the restaurant on the day.</p><p><b>Easy finish:</b> Sanrio can be the entire outing. If Oedo is canceled, use the indoor shop as an alternative.</p><p class="card-note">Market canceled in rain; recheck its event notice. Sanrio’s regular hours are 11:00–20:00.</p><a href="https://www.t-i-forum.co.jp/en/antique/" target="_blank" rel="noopener">Market schedule ↗</a> · <a href="https://stores.sanrio.co.jp/en/1703100" target="_blank" rel="noopener">Sanrio store details ↗</a></div></article></div><p class="small">Venue details checked September 15, 2026. Availability, special closures and routes still need checking close to the visit.</p><h2 class="sec">A little time for Amalia</h2><div class="cards-2"><article class="card" id="family-sanrio"><h3 class="card-name">Hello Kitty at Sanrio NISHIGINZA</h3><div class="card-why"><p>Hello Kitty is a known favorite from the group. Make this her optional stop alongside your Ginza/Yurakucho interests.</p><p><b>Regular hours:</b> 11:00–20:00. Nishi Ginza Department Store, 2F; access via Yurakucho or Ginza stations.</p><p><b>Keep it light:</b> choose a small souvenir together; no café reservation is implied.</p><a href="https://stores.sanrio.co.jp/en/1703100" target="_blank" rel="noopener">Official store ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Sanrio%20NISHIGINZA%20Store" target="_blank" rel="noopener">Find the store ↗</a></div></article><article class="card" id="family-toys"><h3 class="card-name">Tokyo Toy Museum · rainy-day alternative</h3><div class="card-why"><p>Hands-on toy play in a former school in Yotsuya. Use this to replace an outing when you want an indoor play session.</p><p><b>Hours:</b> 10:00–16:00; closed Thursdays and additional calendar closures. Online tickets and on-the-day capacity apply.</p><p><b>Planning note:</b> this needs a deliberate journey to Yotsuya, not a quick detour from Asakusa. Check the calendar, tickets and accessible route before leaving.</p><a href="https://art-play.or.jp/ttm/en/" target="_blank" rel="noopener">Official hours &amp; tickets ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo%20Toy%20Museum%20Yotsuya" target="_blank" rel="noopener">Find the museum ↗</a></div></article></div><h2 class="sec">The next few decisions</h2><div class="decision-grid">
+<article class="decision"><span class="number">01</span><h3>The middle leg</h3><p>Keep Karuizawa and Toyama open for comparison. No destination has been selected.</p><button data-jump="p2">Compare the options →</button></article>
+<article class="decision"><span class="number">02</span><h3>Reservation details</h3><p>Some bookings are further along than the old guide suggests. Check the group updates below before booking again.</p><a href="#booking-summary">See accommodation notes ↓</a></article>
+<article class="decision"><span class="number">03</span><h3>Airport & train details</h3><p>Complete arrival timing, the return terminal, child seating and luggage handoffs.</p><a href="#transfer-summary">See transfer checklist ↓</a></article></div>
+<h2 class="sec" id="booking-summary">Where you’re staying</h2>
+<div class="stay-row"><div><span class="eyebrow">SEP 25–28 · TOKYO</span><h3>EN The House Asakusa Nitenmon</h3><p>Chris reported making the first reservation on August 1. Confirm exact room, beds and washer/dryer.</p></div><span class="status">Booked per group</span></div>
+<div class="stay-row"><div><span class="eyebrow">SEP 28–30 · MIDDLE LEG</span><h3>Karuizawa or Toyama</h3><p>Both retained. Check actual hotel prices and cancellation deadlines before committing.</p></div><span class="status open">Decision open</span></div>
+<div class="stay-row"><div><span class="eyebrow">SEP 30–OCT 3 · KANAZAWA</span><h3>Futon property near the station</h3><p>Chris reported booking the futon option August 2. Context points to Kanazawa Machiya Kenroku; exact property and terms require confirmation.</p></div><span class="status">Booked per group</span></div>
+<div class="stay-row"><div><span class="eyebrow">OCT 3–6 · TOKYO</span><h3>Grand MONday Ueno Okachimachi discussed</h3><p>You agreed August 2 to book the proposed non-refundable rate. A completed reservation has not yet been verified.</p></div><span class="status open">Completion unclear</span></div>
+<p class="small">Group statements were read September 15. “Booked per group” does not mean the reservation confirmation or current terms have been checked.</p>
+<h2 class="sec" id="transfer-summary">Travel handoffs</h2><div class="transfer-list">
+<p><b>Arrival → Asakusa</b><br>Chris’s shared screenshot shows UA7 arriving Narita September 25 at 14:00. Your shared July 26 Air Canada screenshot shows the family arriving Narita at 15:25. Flight numbers and current ticket confirmation still needed.</p>
+<p><b>Tokyo → middle leg → Kanazawa</b><br>Destination remains open. Confirm reserved seats for the group, Amalia’s seat and bag delivery dates.</p>
+<p><b>Kanazawa → Tokyo</b><br>October 3. Confirm final hotel before choosing the station and last connection.</p>
+<p><b>Tokyo → Narita</b><br>The July 26 Air Canada screenshot shows October 6 at 17:50 from Narita. Confirm current flight and terminal. Target terminal arrival by 14:50 for three hours.</p></div>
+<h2 class="sec">Useful updates</h2><div class="cards-2"><article class="card"><h3>Oedo fits your return stay</h3><p>October 4, 09:00–16:00, subject to weather. An option for your existing final Tokyo stretch.</p><a href="https://www.t-i-forum.co.jp/en/antique/">Official event schedule ↗</a></article><article class="card"><h3>One early moon-viewing moment</h3><p>Tsukimi falls on September 25 in 2026. Keep it optional on arrival night.</p><a href="https://www.nao.ac.jp/astro/sky/2026/09-topics03.html">Official calendar ↗</a></article></div>
+<details class="reference-note"><summary>Family interests mentioned in the group</summary><p>Amalia likes Hello Kitty; Pokémon Café was discussed. These are context notes, not new bookings or changes to the itinerary. Chris said he is staying later than the family.</p></details>
+</section>
+
+<!-- ===================== PHASE 1 ===================== -->
+<section class="phase" id="p1"><p class="outing-link"><a href="#outing-craft">Craft and Americana outings →</a></p>
+  <p class="phase-intro">Land, settle, and shop Asakusa — your buy-it-here cluster is a 5-minute walk away.</p>
+  <div class="weather">
+    <div class="wx-head"><span class="wx-title">Weather · Sep 25–28 · Tokyo</span><span class="wx-temp">25–27° / 20–22°C</span></div>
+    <p class="wx-body">Warm and humid, the tail of summer. Rain falls on roughly half of September's days in Tokyo and can be heavy. Sunset around 17:35, so daylight ends earlier than you'd expect. Silver Week crowds (Sep 19–23) are over before you land.</p>
+    <p class="wx-carry">Carry daily: poncho or umbrella, sunscreen, one light layer for evenings.</p>
+    <div class="wx-links"><a href="https://www.google.com/search?q=weather+Tokyo" target="_blank" rel="noopener">Live forecast ↗</a><a href="https://www.jma.go.jp/bosai/map.html#contents=typhoon&lang=en" target="_blank" rel="noopener">Typhoon tracker ↗</a></div>
+    <p class="wx-stamp">Typical for these dates · tap Live forecast for the real numbers · re-check 5–7 days out</p>
+  </div>
+
+  <h2 class="sec">Stay</h2>
+  <article class="card">
+    <div class="card-head"><h4 class="card-name">EN The House Asakusa Nitenmon</h4><span class="badge b-booked">booked</span></div>
+    <p class="card-meta">Asakusa · Hotel</p>
+    <p class="card-why">Big apartment (53–58 m², sleeps 6), full kitchen + washing machine, bunk beds + daybeds. ¥183,700 (~$1,225) / 3 nights.</p>
+    <p class="card-note">⚠ Confirm it's a washer-dryer (not washer-only) and sleeps 4.</p>
+    <div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=EN%20The%20House%20Asakusa%20Nitenmon" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-en" data-check="p1-en"> Been</label></div>
+  </article>
+
+  <h2 class="sec">Eat</h2>
+  <div class="keybox">
+    <p><b>How eating works in Japan.</b> Most restaurants open at <b>11:00</b>, serve lunch 11:00–14:00, then <b>close for a break</b> until about 17:00, and take last orders 30–60 min before closing (usually 21:00–22:00).</p>
+    <p>That leaves two gaps: <b>before 7:30am</b> and <b>after 22:00</b>. Konbini and the 24-hour chains fill both. With a toddler, aim to eat dinner at <b>17:30–18:30</b> — you beat the salaryman rush and nothing is closed yet.</p>
+  </div>
+  <h3 class="subsec">24/7 · late night &amp; early morning</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Konbini</h4><span class="badge b-24h">24h</span></div><p class="card-meta">2–3 min · 7-Eleven / Lawson / FamilyMart</p><p class="card-why">Onigiri, the famous egg-salad sandwich, karaage, hot <b>oden</b>, instant ramen made on site, drip coffee. 7-Eleven ATMs are also your cash source.</p><p class="card-note">Your jet-lag 3am meal and your "Amalia is hungry NOW" insurance.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=convenience%20store%20Asakusa%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-konbini" data-check="f-konbini"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Gyudon chains</h4><span class="badge b-hours">From ~5am</span></div><p class="card-meta">Yoshinoya · Matsuya · Sukiya</p><p class="card-why">Hot sit-down beef bowl, ~¥500, out in minutes. Some branches run 24h. Toddler-friendly and impossible to get wrong.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Matsuya%20gyudon%20Asakusa%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-gyudon" data-check="f-gyudon"> Been</label></div></article>
+  </div>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Don Quijote Asakusa</h4><span class="badge b-24h">24h</span></div><p class="card-meta">Asakusa · Also food</p><p class="card-why">Open all night, sells food alongside everything else. Useful backup when even you can't face another onigiri.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Don%20Quijote%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-donki-food" data-check="f-donki-food"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Vegan Store</h4><span class="badge b-hours">6am–11pm</span></div><p class="card-meta">Asakusa · Closed Mondays</p><p class="card-why">Tokyo's first vegan konbini, with an attached gluten-free restaurant. Opens at 6am, earlier than almost anything else nearby.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Vegan%20Store%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-vegan" data-check="f-vegan"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">Breakfast</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Kissaten morning set</h4><span class="badge b-hours">From 7:00–8:00</span></div><p class="card-meta">Old-style coffee shops · ~¥550–700</p><p class="card-why">Toast, boiled egg, coffee. The classic Japanese café breakfast. Most Asakusa kissaten open 7:00–8:00.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=kissaten%20coffee%20Asakusa%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-kissaten" data-check="f-kissaten"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Traditional teishoku</h4><span class="badge b-hours">From ~7:30</span></div><p class="card-meta">Set meal · ~¥900–1,500</p><p class="card-why">Rice, miso soup, grilled fish, pickles, tamagoyaki. Asakusa is one of the best places in Tokyo to eat this properly.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=teishoku%20breakfast%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-teishoku" data-check="f-teishoku"> Been</label></div></article>
+  </div>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Misojyu</h4><span class="badge b-hours">8:00–10:00 morning</span></div><p class="card-meta">Asakusa · Miso soup + onigiri</p><p class="card-why">Official Asakusa hours: morning 08:00–10:00; regular 10:00–16:00. Recheck before visiting.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Misojyu%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-misojyu" data-check="f-misojyu"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Suke6 Diner</h4><span class="badge b-hours">From 8:00</span></div><p class="card-meta">Hanakawado, by Asakusa Stn</p><p class="card-why">Western-style: eggs, sandwiches, pastries, bakery upstairs. The easy option when nobody wants fish for breakfast. Closed Mondays.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Suke6%20Diner%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-suke6" data-check="f-suke6"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">Snacking</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Nakamise-dori</h4><span class="badge b-hours">~9:00–18:00</span></div><p class="card-meta">Senso-ji approach · right by you</p><p class="card-why">The snack street: melon pan, taiyaki, ningyo-yaki, senbei. ~¥180–300 an item. <b>Denboin-dori</b> behind it is quieter.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Nakamise-dori%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-nakamise" data-check="f-nakamise"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">EKIMISE depachika</h4><span class="badge b-hours">~10:00–20:00</span></div><p class="card-meta">Above Asakusa Station · food hall</p><p class="card-why">Dozens of counters in one basement. Best when all four of you want something different. Counters discount heavily in the last hour.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=EKIMISE%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-ekimise" data-check="f-ekimise"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">Lunch</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Standing soba / udon</h4><span class="badge b-hours">11:00–late</span></div><p class="card-meta">Train stations · ~¥400–600</p><p class="card-why">Out in ten minutes, no reservation, works with a stroller. The most efficient lunch in Japan.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=tachigui%20soba%20Asakusa%20station" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-soba" data-check="f-soba"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Dept-store restaurant floors</h4><span class="badge b-hours">11:00–22:00</span></div><p class="card-meta">Top floors · family-proof</p><p class="card-why">High chairs, plastic food models in the window so you can point, English menus common. Zero-risk with a toddler.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=EKIMISE%20restaurant%20floor%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-deptfood" data-check="f-deptfood"> Been</label></div></article>
+  </div>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Conveyor-belt sushi</h4><span class="badge b-hours">11:00–22:00</span></div><p class="card-meta">Kaiten-zushi</p><p class="card-why">The toddler winner: she sees the food, it arrives instantly, and you control the pace and the bill.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=kaiten%20sushi%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-kaiten" data-check="f-kaiten"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Asakusa Udon</h4><span class="badge b-24h">7:00–21:00</span></div><p class="card-meta">Rare all-day local spot</p><p class="card-why">Open continuously from 7am, ticket-machine ordering, cash only. Unusually early for an Asakusa sit-down meal.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Asakusa%20Udon" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-udon" data-check="f-udon"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">Dinner</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Hoppy Street</h4><span class="badge b-hours">~17:00–23:00</span></div><p class="card-meta">Asakusa · izakaya alley</p><p class="card-why">The local drinking-and-grilled-food street. Cheap, lively, very Asakusa. Gets loud and smoky after 19:00.</p><p class="card-note">With Amalia, go at 17:30. You beat the rush and nothing is shut.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Hoppy%20Street%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-hoppy" data-check="f-hoppy"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Monjayaki / okonomiyaki</h4><span class="badge b-hours">17:00–22:00</span></div><p class="card-meta">The Asakusa speciality</p><p class="card-why">Savoury pancake cooked at your table. Interactive, which buys you twenty minutes of toddler attention.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=okonomiyaki%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-monja" data-check="f-monja"> Been</label></div></article>
+  </div>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Ramen</h4><span class="badge b-hours">11:00–late</span></div><p class="card-meta">Everywhere</p><p class="card-why">Fast, cheap, universally liked. Many shops run late, filling the post-22:00 gap.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=ramen%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-ramen" data-check="f-ramen"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Family restaurants</h4><span class="badge b-24h">Long hours / some 24h</span></div><p class="card-meta">Saizeriya · Gusto · Denny's Japan</p><p class="card-why">Kids' menus, high chairs, picture menus, drink bar. The guaranteed-success option on a bad day.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Saizeriya%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f-famiresu" data-check="f-famiresu"> Been</label></div></article>
+  </div>
+
+
+  <h2 class="sec">Shop · essentials</h2>
+  <h3 class="subsec">Day-one, 5 min from the hotel</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Don Quijote Asakusa</h4><span class="badge b-buy">buy there</span></div><p class="card-meta">Asakusa · Essentials</p><p class="card-why">24hr, tax-free: toiletries, sunscreen, umbrellas, socks, adapters.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Don%20Quijote%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-donki" data-check="p1-donki"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Asakusa ROX</h4><span class="badge b-buy">buy there</span></div><p class="card-meta">Asakusa · Mall</p><p class="card-why">Uniqlo + MUJI + 24hr supermarket: AIRism, tees, packable duffel.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Asakusa%20ROX" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-rox" data-check="p1-rox"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Matsumoto Kiyoshi</h4><span class="badge b-buy">buy there</span></div><p class="card-meta">Kaminarimon · Drugstore</p><p class="card-why">Japanese sunscreen (Anessa, Biore UV), skincare, meds. Tax-free.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Matsumoto%20Kiyoshi%20Kaminarimon" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-matsukiyo" data-check="p1-matsukiyo"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Daiso (in ROX)</h4><span class="badge b-buy">buy there</span></div><p class="card-meta">Asakusa · 100-yen</p><p class="card-why">Cheap umbrella, tote bags, travel bits.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Daiso%20Asakusa%20ROX" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-daiso" data-check="p1-daiso"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Shop · denim &amp; vintage</h2>
+  <h3 class="subsec">Near base (10–15 min)</h3>
+  <article class="card"><div class="card-head"><h4 class="card-name">Hinoya (Ameyoko)</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Ueno · Denim / Americana</p><p class="card-why">Big Americana + workwear + denim store. Close warm-up.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Hinoya%20Ameyoko%20Ueno" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-hinoya" data-check="p1-hinoya"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Kuramae</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Kuramae · Craft district</p><p class="card-why">Leather, letterpress (Kakimori custom notebooks), coffee roasters, ceramics.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kuramae%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-kuramae" data-check="p1-kuramae"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Yanaka Ginza</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Yanaka · Old-town street</p><p class="card-why">Traditional shotengai, crafts, senbei, cats.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Yanaka%20Ginza" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-yanaka" data-check="p1-yanaka"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Kappabashi</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Asakusa · Kitchen town</p><p class="card-why">Knives, ceramics, tools. Walkable.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kappabashi%20Kitchen%20Town" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-kappa" data-check="p1-kappa"> Been</label></div></article>
+
+  <h3 class="subsec">Vintage districts (30–45 min)</h3>
+  <article class="card"><div class="card-head"><h4 class="card-name">Berberjin</h4><span class="badge b-short">shortlisted</span></div><p class="card-meta">Harajuku · Vintage denim</p><p class="card-why">Legendary rare heritage American denim, band tees, military. TikTok-famous.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Berberjin%20Harajuku" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-berberjin" data-check="p1-berberjin"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Shimokitazawa</h4><span class="badge b-short">shortlisted</span></div><p class="card-meta">Shimokitazawa · Vintage capital</p><p class="card-why">Dense clusters. New York Joe Exchange (50% off 1st Sun), Stick Out (¥700).</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Shimokitazawa%20vintage" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-shimokita" data-check="p1-shimokita"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Koenji</h4><span class="badge b-short">shortlisted</span></div><p class="card-meta">Koenji · Real vintage</p><p class="card-why">Grittier/cheaper Americana, workwear, punk. Side-street deep cuts.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Koenji%20vintage" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-koenji" data-check="p1-koenji"> Been</label></div></article>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Edwin flagship</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Harajuku · Selvedge</p><p class="card-why">Full range + free hemming/tapering.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Edwin%20flagship%20Harajuku" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-edwin" data-check="p1-edwin"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Chicago</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Harajuku · Vintage</p><p class="card-why">Fair prices; RL, varsity jackets, kimono, Dickies.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Chicago%20vintage%20Harajuku" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-chicago" data-check="p1-chicago"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Ragtag</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Harajuku · Designer resale</p><p class="card-why">Authenticated designer, 3 floors, Cat St.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Ragtag%20Harajuku" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-ragtag" data-check="p1-ragtag"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Kapital</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Ebisu · Cult Americana</p><p class="card-why">Boro/patchwork, only-in-Japan.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kapital%20Ebisu" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-kapital" data-check="p1-kapital"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Nakano Broadway</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Nakano · Retro warren</p><p class="card-why">Collectibles, watches, Mandarake HQ.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Nakano%20Broadway" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-nakano" data-check="p1-nakano"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">"Off" chains</h4><span class="badge b-buy">buy there</span></div><p class="card-meta">Citywide · Deal hunting</p><p class="card-why">Hard Off, Off House, Mode Off, Book Off.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Hard%20Off%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-off" data-check="p1-off"> Been</label></div></article>
+  </div>
+
+  <h3 class="subsec">Flea markets — your Sunday is Sep 27</h3>
+  <article class="card"><div class="card-head"><h4 class="card-name">Hanazono Shrine Market</h4><span class="badge b-short">shortlisted</span></div><p class="card-meta">Shinjuku · Flea market</p><p class="card-why">Every Sunday, ~30 stalls under the trees. Your Sep 27 pick.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Hanazono%20Shrine%20Shinjuku" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-hanazono" data-check="p1-hanazono"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Oedo Antique Market</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Yurakucho · Antique market</p><p class="card-why">Scheduled <b>October 4, 2026, 09:00–16:00</b>, during the return Tokyo stay. Canceled in rain. <a href="https://www.t-i-forum.co.jp/en/antique/">Official schedule ↗</a></p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Oedo%20Antique%20Market%20Tokyo%20International%20Forum" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-oedo" data-check="p1-oedo"> Been</label></div></article>
+
+  <h2 class="sec">Shop · tech &amp; bags</h2>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Akihabara</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Akihabara · Electronics</p><p class="card-why">~10 min. Yodobashi, Bic, Sofmap, Mandarake.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Akihabara%20Electric%20Town" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-akiba" data-check="p1-akiba"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Porter (Yoshida &amp; Co.)</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Ginza / Nakameguro · Bags</p><p class="card-why">Iconic Japanese bags.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Porter%20Yoshida%20Ginza" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-porter" data-check="p1-porter"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Do</h2>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Senso-ji + Nakamise</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Asakusa · Sight</p><p class="card-why">Right by the hotel.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Senso-ji%20Temple" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-sensoji" data-check="p1-sensoji"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Skytree / Sumida river</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Asakusa · Sight</p><p class="card-why">Walkable riverside views.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Tokyo%20Skytree" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p1-skytree" data-check="p1-skytree"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Open questions</h2>
+  <ul class="checklist"><li><input type="checkbox" id="check-p1-todo1" data-check="p1-todo1"><label for="check-p1-todo1">Confirm EN The House = washer-dryer + sleeps 4</label></li></ul>
+</section>
+
+<!-- ===================== PHASE 2 ===================== -->
+<section class="phase" id="p2">
+  <p class="phase-intro">Decide on the 26/27. Book refundable rooms at both now, cancel the loser, buy the train day-of.</p>
+  <div class="weather">
+    <div class="wx-head"><span class="wx-title">Weather · Sep 28–30 · Middle leg</span><span class="wx-temp">Karuizawa cooler · Toyama ~22–25°C</span></div>
+    <p class="wx-body">Karuizawa sits at mountain elevation and runs noticeably cooler than Tokyo, especially mornings and evenings. Toyama is coastal and tracks close to Kanazawa, mild days with frequent rain. Check both forecasts on the 26th or 27th, the weather is a fair tiebreaker: rain favours Toyama (indoor museums, seafood), clear skies favour Karuizawa (all outdoors).</p>
+    <p class="wx-carry">Pack a proper layer for Karuizawa evenings. Rain gear either way.</p>
+    <div class="wx-links"><a href="https://www.google.com/search?q=weather+Karuizawa" target="_blank" rel="noopener">Live forecast ↗</a><a href="https://www.google.com/search?q=weather+Toyama" target="_blank" rel="noopener">Toyama forecast ↗</a><a href="https://www.jma.go.jp/bosai/map.html#contents=typhoon&lang=en" target="_blank" rel="noopener">Typhoon tracker ↗</a></div>
+    <p class="wx-stamp">Typical for these dates · tap Live forecast for the real numbers · re-check 5–7 days out</p>
+  </div>
+
+  <h2 class="sec">Stay · pick one</h2>
+  <article class="card"><div class="card-head"><h4 class="card-name">Option A — Karuizawa</h4><span class="badge b-tbd">TBD</span></div><p class="card-meta">Karuizawa · Mountain resort</p><p class="card-why">Tokyo→~1h10; →Kanazawa ~2h15. Forests, cafés, easy walking, family-friendly. "Slow down."</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Karuizawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p2-karuizawa" data-check="p2-karuizawa"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Option B — Toyama</h4><span class="badge b-tbd">TBD</span></div><p class="card-meta">Toyama · Coastal city</p><p class="card-why">Tokyo→~2h; →Kanazawa ~25 min. World-class seafood, Kengo Kuma glass museum, canals, trams. "Eat + explore."</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Toyama%20Japan" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p2-toyama" data-check="p2-toyama"> Been</label></div></article>
+
+  <h2 class="sec">Eat</h2>
+  <h3 class="subsec">24/7 · late night &amp; early morning</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Konbini</h4><span class="badge b-24h">24h</span></div><p class="card-meta">Both towns</p><p class="card-why">Small towns shut early — assume 21:00 for everything else. Konbini still run 24h in both Karuizawa and Toyama.</p><p class="card-note">Buy breakfast the night before if you want an early start.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=convenience%20store%20Karuizawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-m-konbini" data-check="m-konbini"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Hotel breakfast</h4><span class="badge b-hours">Morning</span></div><p class="card-meta">Either town</p><p class="card-why">In a resort or business hotel this is usually the fastest, calmest start with a toddler. Worth booking with breakfast included.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Karuizawa%20Station" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-m-hotelbf" data-check="m-hotelbf"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">If you pick Karuizawa</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Kyu-Karuizawa Ginza</h4><span class="badge b-hours">~10:00–18:00</span></div><p class="card-meta">Old shopping street</p><p class="card-why">Snacking street: a local hot dog, deep-fried curry bread, sweets. Walkable and stroller-friendly.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kyu-Karuizawa%20Ginza" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-m-ginza" data-check="m-ginza"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Bakeries &amp; cafés</h4><span class="badge b-hours">From ~8:00</span></div><p class="card-meta">Karuizawa speciality</p><p class="card-why">The town is known for its bakeries and cafés, and they open earlier than restaurants. Café lunches suit the pace here.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=bakery%20Karuizawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-m-bakery" data-check="m-bakery"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">If you pick Toyama</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Toyama Bay seafood</h4><span class="badge b-hours">Lunch &amp; dinner</span></div><p class="card-meta">The food reason to go</p><p class="card-why">White shrimp, firefly squid, sushi. World-class, and cheaper and more authentic than Kanazawa's tourist market.</p><p class="card-note">This is the single strongest argument for choosing Toyama.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=sushi%20Toyama" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-m-toyamasushi" data-check="m-toyamasushi"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Toyama Station</h4><span class="badge b-hours">~7:00–22:00</span></div><p class="card-meta">Food + shops</p><p class="card-why">Station building has the widest hours in town. Reliable fallback when the city winds down.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Toyama%20Station" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-m-toyamastn" data-check="m-toyamastn"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Do · Getting around</h2>
+  <p class="plain" style="color:var(--persimmon)"><b>⚠ Still to fill</b> once you pick Karuizawa or Toyama.</p>
+
+  <h2 class="sec">Open questions</h2>
+  <ul class="checklist"><li><input type="checkbox" id="check-p2-todo1" data-check="p2-todo1"><label for="check-p2-todo1">Book refundable rooms at both; confirm cancel deadline ≥ the 27th</label></li></ul>
+</section>
+
+<!-- ===================== PHASE 3 ===================== -->
+<section class="phase" id="p3">
+  <p class="phase-intro">Quiet alternative to Kyoto. For your 3 adults + Amalia: the group reported booking the futon option on August 2. Original alternatives remain below for reference.</p>
+  <div class="weather">
+    <div class="wx-head"><span class="wx-title">Weather · Sep 30–Oct 3 · Kanazawa</span><span class="wx-temp">22–25° / 15–19°C</span></div>
+    <p class="wx-body">Cooler than Tokyo by a degree or so, but far wetter. Kanazawa gets rain on roughly 19 days a month in both September and October, and it tends to fall heavily. Local tourism advice is blunt about it: keep a foldable umbrella in your bag. Evenings turn chilly.</p>
+    <p class="wx-carry">Rain gear is not optional here. Light jacket or sweater for evenings.</p>
+    <div class="wx-links"><a href="https://www.google.com/search?q=weather+Kanazawa" target="_blank" rel="noopener">Live forecast ↗</a><a href="https://www.jma.go.jp/bosai/map.html#contents=typhoon&lang=en" target="_blank" rel="noopener">Typhoon tracker ↗</a></div>
+    <p class="wx-stamp">Typical for these dates · tap Live forecast for the real numbers · re-check 5–7 days out</p>
+  </div>
+
+  <h2 class="sec">Stay</h2>
+  <article class="card"><div class="card-head"><h4 class="card-name">Hotel Forza Kanazawa</h4><span class="badge b-short">Chris's pick</span></div><p class="card-meta">Near station / Omicho · Business hotel</p><p class="card-why">Excellent (9.0–9.4), stylish, prime location. But Some room configurations accommodate three adults with an extra bed. Check the exact room and child bedding policy.</p><p class="card-note">The group subsequently reported booking a Kanazawa futon property; confirm its exact name and reservation details.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Forza%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-forza" data-check="p3-forza"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Machiya Inn — Mimari</h4><span class="badge b-short">shortlisted</span></div><p class="card-meta">6 min to station · Townhouse</p><p class="card-why">Sleeps ~7, in-room washer+dryer + kitchen, tatami. Fits everyone in one unit.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Machiya%20Residence%20Inn%20Mimari%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-mimari" data-check="p3-mimari"> Been</label></div></article>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Machiya — Hanatsume</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Nagamachi · Townhouse</p><p class="card-why">Sleeps ~6, washer+dryer, samurai district.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Machiya%20Residence%20Inn%20Hanatsume%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-hanatsume" data-check="p3-hanatsume"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Machiya Kenroku</h4><span class="badge b-idea">idea</span></div><p class="card-meta">4 min to station · Townhouse</p><p class="card-why">2BR + living, washer, garden. 10.0 location.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kanazawa%20Machiya%20Kenroku" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-kenroku" data-check="p3-kenroku"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Kotone</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Central · Townhouse</p><p class="card-why">Elegant machiya, washer + kitchen + indoor/outdoor bath. Verify sleeps 4.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kotone%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-kotone" data-check="p3-kotone"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Eat</h2>
+  <h3 class="subsec">24/7 · late night &amp; early morning</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Konbini</h4><span class="badge b-24h">24h</span></div><p class="card-meta">Citywide</p><p class="card-why">Kanazawa is quiet after dark and much of it shuts by 21:00–22:00. Konbini are the late-night and pre-dawn answer.</p><p class="card-note">In a machiya with a kitchen? Stock it once and you're covered.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=convenience%20store%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-konbini" data-check="k-konbini"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Kanazawa Station</h4><span class="badge b-hours">~7:00–22:00</span></div><p class="card-meta">Restaurant + food floors</p><p class="card-why">The station is a destination in itself. Stroller-friendly, rain-proof, and open wider hours than the city around it.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kanazawa%20Station" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-station" data-check="k-station"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">Breakfast — the local move</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Omicho Market</h4><span class="badge b-hours">~9:00–17:00</span></div><p class="card-meta">2 min from Hotel Forza</p><p class="card-why">The <b>kaisendon</b> (seafood rice bowl) counters serve from opening. A fresh sashimi bowl for breakfast is the Kanazawa thing to do.</p><p class="card-note">⚠ Closes mid-afternoon, many stalls earlier. Breakfast and lunch only, never dinner.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Omicho%20Market%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-omicho" data-check="k-omicho"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Machiya kitchen</h4><span class="badge b-24h">Any time</span></div><p class="card-meta">If you book a townhouse</p><p class="card-why">Buy fish and produce at Omicho, cook it at the machiya. Cheapest and best meal of the trip, and it suits a toddler's schedule.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Omicho%20Market%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-cook" data-check="k-cook"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">Snacking</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Gold-leaf soft serve</h4><span class="badge b-hours">~10:00–17:00</span></div><p class="card-meta">Higashi Chaya district</p><p class="card-why">Kanazawa's signature snack, and the city produces nearly all of Japan's gold leaf. Genuinely a photo moment.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=gold%20leaf%20ice%20cream%20Higashi%20Chaya%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-goldleaf" data-check="k-goldleaf"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Wagashi</h4><span class="badge b-hours">~9:00–18:00</span></div><p class="card-meta">Tea-house streets</p><p class="card-why">Kanazawa is one of Japan's three great wagashi (traditional sweets) cities. Worth buying a box to bring home.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=wagashi%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-wagashi" data-check="k-wagashi"> Been</label></div></article>
+  </div>
+  <h3 class="subsec">Lunch &amp; dinner</h3>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Katamachi</h4><span class="badge b-hours">17:00–late</span></div><p class="card-meta">Restaurant + nightlife district</p><p class="card-why">Where Kanazawa actually eats dinner. Local specialities: <b>jibuni</b> (duck stew), <b>oden</b>, Kaga cuisine.</p><p class="card-note">Book ahead or go early. The good places are small and fill up.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Katamachi%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-katamachi" data-check="k-katamachi"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Omicho (lunch)</h4><span class="badge b-hours">~9:00–17:00</span></div><p class="card-meta">Second visit, different meal</p><p class="card-why">Grilled skewers, croquettes, oysters eaten standing at the stalls. Easier than a sit-down lunch with a stroller.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Omicho%20Market%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-k-omicho-lunch" data-check="k-omicho-lunch"> Been</label></div></article>
+  </div>
+  <article class="card"><div class="card-head"><h4 class="card-name">Omicho Market</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Central · Seafood market</p><p class="card-why">Fresh sushi / seafood lunch.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Omicho%20Market%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-omicho" data-check="p3-omicho"> Been</label></div></article>
+
+  <h2 class="sec">Do</h2>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Kenrokuen Garden</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Central · Sight</p><p class="card-why">Top-3 garden.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kenrokuen%20Garden" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-kenrokuen" data-check="p3-kenrokuen"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Higashi Chaya</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Central · Sight</p><p class="card-why">Geisha tea-house streets, gold leaf.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Higashi%20Chaya%20District%20Kanazawa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-higashi" data-check="p3-higashi"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Kanazawa Castle</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Central · Sight</p><p class="card-why">+ Nagamachi, 21st Century Museum.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Kanazawa%20Castle" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-castle" data-check="p3-castle"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Natadera Temple</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Day trip · Sight</p><p class="card-why">Possible day trip.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Natadera%20Temple" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p3-natadera" data-check="p3-natadera"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Open questions</h2>
+  <ul class="checklist"><li><input type="checkbox" id="check-p3-todo1" data-check="p3-todo1"><label for="check-p3-todo1">Confirm the exact Kanazawa futon property booked by Chris, its beds and cancellation deadline</label></li></ul>
+</section>
+
+<!-- ===================== PHASE 4 ===================== -->
+<section class="phase" id="p4"><p class="outing-link"><a href="#outing-antiques">Antiques, Hello Kitty and indoor play →</a></p>
+  <p class="phase-intro">Final stretch before flying home. The group discussed Grand MONday Ueno Okachimachi; completion of that booking needs confirmation.</p>
+  <div class="weather">
+    <div class="wx-head"><span class="wx-title">Weather · Oct 3–6 · Tokyo</span><span class="wx-temp">22–24° / 17–19°C</span></div>
+    <p class="wx-body">Noticeably more comfortable than your first Tokyo stretch, the humidity has broken. But October is Tokyo's wettest month by rainfall, so expect at least one properly wet day. Typhoon risk drops through the month as storms start curving out to sea.</p>
+    <p class="wx-carry">Layer up: the jungle jacket earns its place now. Keep the poncho packed.</p>
+    <div class="wx-links"><a href="https://www.google.com/search?q=weather+Tokyo" target="_blank" rel="noopener">Live forecast ↗</a><a href="https://www.jma.go.jp/bosai/map.html#contents=typhoon&lang=en" target="_blank" rel="noopener">Typhoon tracker ↗</a></div>
+    <p class="wx-stamp">Typical for these dates · tap Live forecast for the real numbers · re-check 5–7 days out</p>
+  </div>
+
+  <h2 class="sec">Stay · apartment-style, sleeps 4</h2>
+  <article class="card"><div class="card-head"><h4 class="card-name">MIMARU Tokyo Ueno</h4><span class="badge b-short">shortlisted</span></div><p class="card-meta">Ueno · Apartment</p><p class="card-why">Best for departure: Keisei Skyliner → Narita ~45 min. Kitchen + laundry. Est. ~$450–700/night.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=MIMARU%20Tokyo%20Ueno" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p4-mimaru" data-check="p4-mimaru"> Been</label></div></article>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">MIMARU Asakusa Station</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Asakusa · Apartment</p><p class="card-why">Familiar area; kitchen + laundry.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=MIMARU%20Tokyo%20Asakusa%20Station" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p4-mimaru2" data-check="p4-mimaru2"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">B:CONTE / KOKO / Citadines</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Various · Apartment</p><p class="card-why">Alternatives, kitchen + laundry.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=B-CONTE%20Asakusa" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-p4-bconte" data-check="p4-bconte"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Eat</h2>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Same playbook as your first stay</h4><span class="badge b-idea">—</span></div><p class="card-meta">See the Tokyo tab</p><p class="card-why">Konbini 24h, depachika for variety, standing soba for fast lunches, family restaurants for guaranteed toddler seating.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=convenience%20store%20Ueno%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f2-same" data-check="f2-same"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Depachika dinner</h4><span class="badge b-hours">~10:00–20:00</span></div><p class="card-meta">Isetan Shinjuku · Mitsukoshi Ginza</p><p class="card-why">Take dinner back to the apartment. Best food-per-effort in Tokyo when everyone is shopped-out and tired.</p><p class="card-note">Go in the last hour before closing for steep discounts.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Isetan%20Shinjuku%20depachika" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f2-depachika" data-check="f2-depachika"> Been</label></div></article>
+  </div>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Departure morning · Oct 6</h4><span class="badge b-hours">Before you leave</span></div><p class="card-meta">Eat before Narita</p><p class="card-why">Konbini breakfast or a slow apartment breakfast. Don't hunt for lunch airside with a toddler and a 3-hour buffer.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=convenience%20store%20Ueno%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f2-departure" data-check="f2-departure"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Tsukimi · Sep 25</h4><span class="badge b-idea">One night only</span></div><p class="card-meta">Moon-viewing</p><p class="card-why">Konbini and shops sell tsukimi-themed food (moon-viewing dango, egg burgers) for the festival. Easy way to mark it.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Asakusa%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-f2-tsukimi" data-check="f2-tsukimi"> Been</label></div></article>
+  </div>
+
+  <h2 class="sec">Do</h2>
+  <p class="plain">Finish shopping, remaining Tokyo sights. <b>Tsukimi (moon-viewing) — Sep 25</b> if desired; this falls on arrival day in 2026.</p>
+
+  <h2 class="sec">Departure · Tue Oct 6</h2>
+  <p class="plain">Leave Tokyo <b>~1:00 PM</b> → correct Narita terminal by <b>2:50 PM</b> for a full three-hour buffer → <b>5:50 PM flight</b>. Build a real 3-hr buffer (toddler + bags + tax-free check).</p>
+
+  <h2 class="sec">Open questions</h2>
+  <ul class="checklist"><li><input type="checkbox" id="check-p4-todo1" data-check="p4-todo1"><label for="check-p4-todo1">Confirm whether the agreed Grand MONday Ueno Okachimachi booking was completed; record its actual terms</label></li></ul>
+</section>
+
+<!-- ===================== PHASE 5 ===================== -->
+<section class="phase" id="p5">
+  <p class="phase-intro">The cross-cutting stuff: bags, shoes, rain, clothes, connectivity, weather.</p>
+
+  <h2 class="sec">Bags</h2>
+  <p class="plain"><b>Patagonia ~45L</b> (main, clothes, forwarded) <span class="badge b-owned">owned</span> · <b>Osprey Daylite 20L</b> (laptops on transit + daypack; add a $15 padded 14" sleeve) <span class="badge b-owned">owned</span></p>
+  <p class="plain"><b>Big packable duffel</b> for the return haul <span class="badge b-buy">buy there</span> (North Face Japan, or Patagonia Black Hole / Eagle Creek) · <b>Small packable tote</b> for daily buys <span class="badge b-buy">buy there</span></p>
+  <p class="plain" style="color:var(--slate)">Skip the Topo — the Daylite carries the laptops, so it's redundant.</p>
+
+  <h2 class="sec">Bag forwarding (takkyubin)</h2>
+  <p class="plain">Very reliable for <b>clothes</b>. <b>Never</b> forward laptops/valuables (¥300k cap; power banks not accepted) — keep those in the Daylite, always on you.</p>
+
+  <h2 class="sec">Shoes</h2>
+  <article class="card"><div class="card-head"><h4 class="card-name">Salomon XT-6 GORE-TEX</h4><span class="badge b-booked">got it</span></div><p class="card-meta">Olive Night · US 13</p><p class="card-why">Usual 12.5, sized up for the narrow fit. Waterproof + trendy, one do-everything pair. ~$166, StockX.</p></article>
+
+  <h2 class="sec">Rain layer</h2>
+  <p class="plain"><b>Marmot PreCip Eco</b> (~$60, true to size) — packable day-one cover <span class="badge b-short">shortlisted</span></p>
+  <p class="plain"><b>Montbell Versalite</b> — buy in Japan (~$145 vs US $285) at Montbell Kyobashi/Shinjuku <span class="badge b-buy">buy there</span></p>
+  <p class="plain"><b>Trendy parka</b> (Alpha M-65 / vintage) — for looks; buy in Tokyo vintage districts <span class="badge b-buy">buy there</span></p>
+
+  <h2 class="sec">Clothes</h2>
+  <p class="plain">Confirm laundry at each booked property before finalizing clothing quantities, merino not required. Keep <b>1–2 quick-dry tees</b> as a hedge (travel days, humid start, in case EN The House is washer-only).</p>
+  <p class="plain"><b>Take:</b> XT-6, 2 trousers, 2–3 tees, 1 light layer, 2–3 days underclothes, sleep set, rain shell, sunglasses.</p>
+  <p class="plain"><b>Buy in Tokyo:</b> extra tees/underwear (Uniqlo AIRism), sunscreen/skincare (Matsukiyo/Donki), umbrella, tote, cap.</p>
+  <p class="plain" style="color:var(--slate)">Trendy merino under $100 if wanted: Western Rise, Unbound, Mack Weldon, ARKET knit polo (skip ASOS DESIGN quality).</p>
+
+  <h2 class="sec">Connectivity</h2>
+  <p class="plain"><b>Ubigi eSIM</b> — unlimited 15-day (~$39), Docomo + KDDI, unrestricted tethering — as hotspot on your personal phone <span class="badge b-buy">install pre-flight</span></p>
+  <p class="plain">Keep <b>T-Mobile</b> active for your number + 2FA (data roaming OFF). Optional Sakura Mobile backup. No portable hotspot needed.</p>
+  <p class="plain" style="color:var(--slate)">Unlock check: Settings → General → About → Carrier Lock = "No SIM restrictions."</p>
+
+  <h2 class="sec">Weather &amp; money</h2>
+  <p class="plain">Late Sept: warm/humid ~26–28°C, ~1-in-3 daily rain. Early Oct: cooler, ~50% daily rain (Tokyo's wettest month), typhoon season. <b>Check the forecast near each leg; these seasonal ranges are not a live forecast.</b></p>
+  <p class="plain">Tax-free rules change November 1, 2026, after this trip. Buy consumables for use during the trip tax-paid; tax-free consumables must remain sealed for export. <a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000113.html">Official guidance ↗</a></p>
+
+  <h2 class="sec">Master to-do</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-p5-t1" data-check="p5-t1"><label for="check-p5-t1">Confirm EN The House washer-dryer + sleeps 4</label></li>
+    <li><input type="checkbox" id="check-p5-t2" data-check="p5-t2"><label for="check-p5-t2">Book middle leg (Karuizawa + Toyama, free cancellation)</label></li>
+    <li><input type="checkbox" id="check-p5-t3" data-check="p5-t3"><label for="check-p5-t3">Confirm the Kanazawa booking reported in the group</label></li>
+    <li><input type="checkbox" id="check-p5-t4" data-check="p5-t4"><label for="check-p5-t4">Confirm second Tokyo booking and terms</label></li>
+    <li><input type="checkbox" id="check-p5-t5" data-check="p5-t5"><label for="check-p5-t5">Check forecasts before each leg</label></li>
+    <li><input type="checkbox" id="check-p5-t6" data-check="p5-t6"><label for="check-p5-t6">Buy: rain shell, Ubigi eSIM, 14" laptop sleeve</label></li>
+  </ul>
+
+</section>
+
+<!-- ===================== PHASE 6 — BUY IN JAPAN ===================== -->
+<section class="phase" id="p6"><h2 class="sec" id="shopping-tracker">Your shopping notebook</h2><p class="plain">Keep priorities, specifications and collection times in one place. Everything is open to browse and review; nothing is a must-have. No overall budget cap. Your ceiling is US$500 per individual item. Entries save in this browser and are included in Save progress.</p><p class="budget-policy"><b>Up to US$500 per individual item</b> · No overall shopping cap. Enter a dollar estimate for the most expensive individual item in each category. Verify the actual conversion and fees before buying.</p><label class="edit-field" for="field-total-budget"><span>Optional overall budget · ¥ (leave blank for no cap)</span><input id="field-total-budget" data-field="total-budget" type="number" min="0" step="1"></label><p id="shopping-totals" role="status"></p><p id="item-limit-status" role="status"></p><h3>Collections to remember</h3><p class="small">Enter the shop-agreed deadline. Date/time fields are Japan local time. Reminders appear here; they do not send notifications.</p><ul id="pickup-list"><li>No collection deadlines entered yet.</li></ul><details class="buy-record"><summary>Selvedge denim <span class="early-tag">Start early</span></summary><p class="card-note">Start during the first Tokyo stay if possible. Confirm the actual alteration/lens turnaround and where to collect before paying.</p><div class="record-grid"><label class="edit-field" for="field-denim-priority"><span>Priority</span><select id="field-denim-priority" data-field="denim-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-denim-budget"><span>Budget · ¥</span><input id="field-denim-budget" data-field="denim-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-denim-spec"><span>Size / prescription / model</span><input id="field-denim-spec" data-field="denim-spec" type="text" placeholder="Waist, inseam, cut, fabric; ask about hemming"></label><label class="edit-field" for="field-denim-shop"><span>Exact shop / branch</span><input id="field-denim-shop" data-field="denim-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-denim-state"><span>Purchase status</span><select id="field-denim-state" data-field="denim-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-denim-price"><span>Actual category total paid · ¥</span><input id="field-denim-price" data-field="denim-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-denim-item-usd"><span>Highest individual item estimate · US$</span><input id="field-denim-item-usd" data-field="denim-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-denim-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-denim-pickup" data-field="denim-pickup" type="datetime-local"></label><label class="edit-field" for="field-denim-receipt"><span>Receipt / order note</span><input id="field-denim-receipt" data-field="denim-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Glasses <span class="early-tag">Start early</span></summary><p class="card-note">Start during the first Tokyo stay if possible. Confirm the actual alteration/lens turnaround and where to collect before paying.</p><div class="record-grid"><label class="edit-field" for="field-glasses-priority"><span>Priority</span><select id="field-glasses-priority" data-field="glasses-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-glasses-budget"><span>Budget · ¥</span><input id="field-glasses-budget" data-field="glasses-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-glasses-spec"><span>Size / prescription / model</span><input id="field-glasses-spec" data-field="glasses-spec" type="text" placeholder="Prescription, lens type, frames; confirm turnaround"></label><label class="edit-field" for="field-glasses-shop"><span>Exact shop / branch</span><input id="field-glasses-shop" data-field="glasses-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-glasses-state"><span>Purchase status</span><select id="field-glasses-state" data-field="glasses-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-glasses-price"><span>Actual category total paid · ¥</span><input id="field-glasses-price" data-field="glasses-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-glasses-item-usd"><span>Highest individual item estimate · US$</span><input id="field-glasses-item-usd" data-field="glasses-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-glasses-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-glasses-pickup" data-field="glasses-pickup" type="datetime-local"></label><label class="edit-field" for="field-glasses-receipt"><span>Receipt / order note</span><input id="field-glasses-receipt" data-field="glasses-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Vintage watch</summary><div class="record-grid"><label class="edit-field" for="field-watch-priority"><span>Priority</span><select id="field-watch-priority" data-field="watch-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-watch-budget"><span>Budget · ¥</span><input id="field-watch-budget" data-field="watch-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-watch-spec"><span>Size / prescription / model</span><input id="field-watch-spec" data-field="watch-spec" type="text" placeholder="Model, condition, service history and warranty"></label><label class="edit-field" for="field-watch-shop"><span>Exact shop / branch</span><input id="field-watch-shop" data-field="watch-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-watch-state"><span>Purchase status</span><select id="field-watch-state" data-field="watch-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-watch-price"><span>Actual category total paid · ¥</span><input id="field-watch-price" data-field="watch-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-watch-item-usd"><span>Highest individual item estimate · US$</span><input id="field-watch-item-usd" data-field="watch-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-watch-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-watch-pickup" data-field="watch-pickup" type="datetime-local"></label><label class="edit-field" for="field-watch-receipt"><span>Receipt / order note</span><input id="field-watch-receipt" data-field="watch-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Electronics</summary><div class="record-grid"><label class="edit-field" for="field-electronics-priority"><span>Priority</span><select id="field-electronics-priority" data-field="electronics-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-electronics-budget"><span>Budget · ¥</span><input id="field-electronics-budget" data-field="electronics-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-electronics-spec"><span>Size / prescription / model</span><input id="field-electronics-spec" data-field="electronics-spec" type="text" placeholder="Exact model, US compatibility, voltage and warranty"></label><label class="edit-field" for="field-electronics-shop"><span>Exact shop / branch</span><input id="field-electronics-shop" data-field="electronics-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-electronics-state"><span>Purchase status</span><select id="field-electronics-state" data-field="electronics-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-electronics-price"><span>Actual category total paid · ¥</span><input id="field-electronics-price" data-field="electronics-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-electronics-item-usd"><span>Highest individual item estimate · US$</span><input id="field-electronics-item-usd" data-field="electronics-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-electronics-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-electronics-pickup" data-field="electronics-pickup" type="datetime-local"></label><label class="edit-field" for="field-electronics-receipt"><span>Receipt / order note</span><input id="field-electronics-receipt" data-field="electronics-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Worker’s jacket</summary><div class="record-grid"><label class="edit-field" for="field-jacket-priority"><span>Priority</span><select id="field-jacket-priority" data-field="jacket-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-jacket-budget"><span>Budget · ¥</span><input id="field-jacket-budget" data-field="jacket-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-jacket-spec"><span>Size / prescription / model</span><input id="field-jacket-spec" data-field="jacket-spec" type="text" placeholder="Size, fit, preferred fabric and style"></label><label class="edit-field" for="field-jacket-shop"><span>Exact shop / branch</span><input id="field-jacket-shop" data-field="jacket-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-jacket-state"><span>Purchase status</span><select id="field-jacket-state" data-field="jacket-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-jacket-price"><span>Actual category total paid · ¥</span><input id="field-jacket-price" data-field="jacket-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-jacket-item-usd"><span>Highest individual item estimate · US$</span><input id="field-jacket-item-usd" data-field="jacket-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-jacket-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-jacket-pickup" data-field="jacket-pickup" type="datetime-local"></label><label class="edit-field" for="field-jacket-receipt"><span>Receipt / order note</span><input id="field-jacket-receipt" data-field="jacket-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Bags & return duffel</summary><div class="record-grid"><label class="edit-field" for="field-bags-priority"><span>Priority</span><select id="field-bags-priority" data-field="bags-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-bags-budget"><span>Budget · ¥</span><input id="field-bags-budget" data-field="bags-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-bags-spec"><span>Size / prescription / model</span><input id="field-bags-spec" data-field="bags-spec" type="text" placeholder="Capacity, carry-on requirements and dimensions"></label><label class="edit-field" for="field-bags-shop"><span>Exact shop / branch</span><input id="field-bags-shop" data-field="bags-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-bags-state"><span>Purchase status</span><select id="field-bags-state" data-field="bags-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-bags-price"><span>Actual category total paid · ¥</span><input id="field-bags-price" data-field="bags-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-bags-item-usd"><span>Highest individual item estimate · US$</span><input id="field-bags-item-usd" data-field="bags-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-bags-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-bags-pickup" data-field="bags-pickup" type="datetime-local"></label><label class="edit-field" for="field-bags-receipt"><span>Receipt / order note</span><input id="field-bags-receipt" data-field="bags-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Kakimori notebook</summary><div class="record-grid"><label class="edit-field" for="field-notebook-priority"><span>Priority</span><select id="field-notebook-priority" data-field="notebook-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-notebook-budget"><span>Budget · ¥</span><input id="field-notebook-budget" data-field="notebook-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-notebook-spec"><span>Size / prescription / model</span><input id="field-notebook-spec" data-field="notebook-spec" type="text" placeholder="Cover, paper, binding; appointment if weekend"></label><label class="edit-field" for="field-notebook-shop"><span>Exact shop / branch</span><input id="field-notebook-shop" data-field="notebook-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-notebook-state"><span>Purchase status</span><select id="field-notebook-state" data-field="notebook-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-notebook-price"><span>Actual category total paid · ¥</span><input id="field-notebook-price" data-field="notebook-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-notebook-item-usd"><span>Highest individual item estimate · US$</span><input id="field-notebook-item-usd" data-field="notebook-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-notebook-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-notebook-pickup" data-field="notebook-pickup" type="datetime-local"></label><label class="edit-field" for="field-notebook-receipt"><span>Receipt / order note</span><input id="field-notebook-receipt" data-field="notebook-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Barber appointment</summary><div class="record-grid"><label class="edit-field" for="field-barber-priority"><span>Priority</span><select id="field-barber-priority" data-field="barber-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-barber-budget"><span>Budget · ¥</span><input id="field-barber-budget" data-field="barber-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-barber-spec"><span>Size / prescription / model</span><input id="field-barber-spec" data-field="barber-spec" type="text" placeholder="Branch, service, reference photo and appointment time"></label><label class="edit-field" for="field-barber-shop"><span>Exact shop / branch</span><input id="field-barber-shop" data-field="barber-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-barber-state"><span>Purchase status</span><select id="field-barber-state" data-field="barber-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-barber-price"><span>Actual category total paid · ¥</span><input id="field-barber-price" data-field="barber-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-barber-item-usd"><span>Highest individual item estimate · US$</span><input id="field-barber-item-usd" data-field="barber-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-barber-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-barber-pickup" data-field="barber-pickup" type="datetime-local"></label><label class="edit-field" for="field-barber-receipt"><span>Receipt / order note</span><input id="field-barber-receipt" data-field="barber-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Amalia / family souvenirs</summary><div class="record-grid"><label class="edit-field" for="field-family-priority"><span>Priority</span><select id="field-family-priority" data-field="family-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-family-budget"><span>Budget · ¥</span><input id="field-family-budget" data-field="family-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-family-spec"><span>Size / prescription / model</span><input id="field-family-spec" data-field="family-spec" type="text" placeholder="Character, item, size and spending limit"></label><label class="edit-field" for="field-family-shop"><span>Exact shop / branch</span><input id="field-family-shop" data-field="family-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-family-state"><span>Purchase status</span><select id="field-family-state" data-field="family-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-family-price"><span>Actual category total paid · ¥</span><input id="field-family-price" data-field="family-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-family-item-usd"><span>Highest individual item estimate · US$</span><input id="field-family-item-usd" data-field="family-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-family-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-family-pickup" data-field="family-pickup" type="datetime-local"></label><label class="edit-field" for="field-family-receipt"><span>Receipt / order note</span><input id="field-family-receipt" data-field="family-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><details class="buy-record"><summary>Other purchases</summary><div class="record-grid"><label class="edit-field" for="field-other-priority"><span>Priority</span><select id="field-other-priority" data-field="other-priority"><option value="">Interested / review</option><option value="must">Must-have</option><option value="browse">Browse only</option><option value="skip">Skip</option></select></label><label class="edit-field" for="field-other-budget"><span>Budget · ¥</span><input id="field-other-budget" data-field="other-budget" type="number" min="0" step="1"></label><label class="edit-field" for="field-other-spec"><span>Size / prescription / model</span><input id="field-other-spec" data-field="other-spec" type="text" placeholder="Tops, hats, cables or other items"></label><label class="edit-field" for="field-other-shop"><span>Exact shop / branch</span><input id="field-other-shop" data-field="other-shop" type="text" placeholder="Name and location"></label><label class="edit-field" for="field-other-state"><span>Purchase status</span><select id="field-other-state" data-field="other-state"><option value="planned">Not purchased</option><option value="ordered">Ordered / awaiting pickup</option><option value="bought">Bought / collected</option></select></label><label class="edit-field" for="field-other-price"><span>Actual category total paid · ¥</span><input id="field-other-price" data-field="other-price" type="number" min="0" step="1"></label><label class="edit-field" for="field-other-item-usd"><span>Highest individual item estimate · US$</span><input id="field-other-item-usd" data-field="other-item-usd" type="number" min="0" step="1" placeholder="Your ceiling: $500 per item"></label><label class="edit-field" for="field-other-pickup"><span>Collection / appointment deadline · Japan time</span><input id="field-other-pickup" data-field="other-pickup" type="datetime-local"></label><label class="edit-field" for="field-other-receipt"><span>Receipt / order note</span><input id="field-other-receipt" data-field="other-receipt" type="text" placeholder="Reference or where the receipt is saved"></label></div></details><p class="small">Actual totals include only amounts you enter. Store multiple item amounts as one category total. Unknown amounts are not assumed to be zero.</p>
+  <p class="phase-intro">Your running list of things to buy and do in Japan — tick them off as you go, any day. Models, shops, and spots are targets, not fixed.</p>
+
+  <h2 class="sec">Electronics</h2>
+  <p class="plain" style="color:var(--slate)">Mostly Akihabara — Yodobashi &amp; Bic Camera (~10 min from Asakusa) + Donki. Tax-free with passport.</p>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-buy-e1" data-check="buy-e1"><label for="check-buy-e1"><b>Bluetooth headphones</b> — Sony WF-1000XM5 (in-ear) / WH-1000XM6 (over-ear), or Japanese: Final Audio, AVIOT, ag, Audio-Technica (Japan-only editions). Win = Japan colors + tax-free.</label></li>
+    <li><input type="checkbox" id="check-buy-e2" data-check="buy-e2"><label for="check-buy-e2"><b>Charging cables</b> — phone + laptop + power bank (USB-C etc.). Spares/upgrades; cheap at Donki/Yodobashi.</label></li>
+    <li><input type="checkbox" id="check-buy-e3" data-check="buy-e3"><label for="check-buy-e3"><b>Power bank</b> — Anker, CIO, Elecom. ⚠ Carry-on only — can't check it or forward via takkyubin.</label></li>
+    <li><input type="checkbox" id="check-buy-e4" data-check="buy-e4"><label for="check-buy-e4"><b>Cell phone (bring-home, not for the trip)</b> — Sony Xperia (safest US bands), Sharp AQUOS, Balmuda. ⚠ Check US bands, note the un-mutable shutter sound, buy unlocked.</label></li>
+    <li><input type="checkbox" id="check-buy-e5" data-check="buy-e5"><label for="check-buy-e5"><b>Browse Japan-exclusive</b> — Casio G-Shock JDM models; Panasonic grooming/beauty (⚠ voltage: Japan is 100V).</label></li>
+  </ul>
+
+  <h2 class="sec">Clothes</h2>
+  <p class="plain" style="color:var(--slate)">Harajuku, Shimokitazawa, Koenji, Ameyoko. Try everything on — sizing runs small.</p>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-buy-c1" data-check="buy-c1"><label for="check-buy-c1"><b>Selvedge denim</b> — Momotaro, Japan Blue, Oni, Samurai, Iron Heart, Studio D'Artisan. Edwin flagship (free hemming), Hinoya (Ameyoko), or vintage at Berberjin.</label></li>
+    <li><input type="checkbox" id="check-buy-c2" data-check="buy-c2"><label for="check-buy-c2"><b>Worker's jacket</b> — vintage chore coat / M-65 / coverall (Berberjin, Chicago, Koenji) or repro (Real McCoy's, Buzz Rickson's).</label></li>
+    <li><input type="checkbox" id="check-buy-c3" data-check="buy-c3"><label for="check-buy-c3"><b>Vintage tees</b> — Shimokitazawa, Koenji, Chicago.</label></li>
+    <li><input type="checkbox" id="check-buy-c4" data-check="buy-c4"><label for="check-buy-c4"><b>Vintage pants</b> — fatigues / workwear / cords (Koenji, Ameyoko back-alleys).</label></li>
+    <li><input type="checkbox" id="check-buy-c5" data-check="buy-c5"><label for="check-buy-c5"><b>Shoes (2nd / fun pair)</b> — New Balance (Japan-exclusive colors), Asics, or vintage.</label></li>
+    <li><input type="checkbox" id="check-buy-c6" data-check="buy-c6"><label for="check-buy-c6"><b>Hats</b> — caps / bucket / workwear (Donki, ROX, Beams, vintage).</label></li>
+    <li><input type="checkbox" id="check-buy-c8" data-check="buy-c8"><label for="check-buy-c8"><b>Bags — backpacks &amp; satchels</b> — Porter / Yoshida &amp; Co. (flagship Ginza, or Nakameguro), Master-Piece (Harajuku/Daikanyama), or leather satchels from the Kuramae makers near your hotel.</label></li>
+    <li><input type="checkbox" id="check-buy-c7" data-check="buy-c7"><label for="check-buy-c7"><b>Everyday tops</b> — Uniqlo AIRism/U at ROX (day-one basics) + vintage/select-shop tops for the look.</label></li>
+  </ul>
+
+  <h2 class="sec">Glasses · eyewear</h2>
+  <p class="plain" style="color:var(--slate)">Walk in, no appointment. Free in-store vision test (no doctor visit needed), pick frames, pick up same day for a simple prescription. Bring your current glasses or prescription as a backup, though not required. Branches in Shibuya, Shinjuku, Harajuku, Ginza.</p>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Zoff</h4><span class="badge b-short">trendiest</span></div><p class="card-meta">Multiple areas · Eyewear</p><p class="card-why">Most design-forward of the three — frequent fashion collabs. From ¥5,500 (~$35–40) incl. lenses. ~1 pair/day.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Zoff%20Shibuya" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-g1" data-check="buy-g1"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">JINS</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Multiple areas · Eyewear</p><p class="card-why">Sleek/minimalist, ultra-thin lenses free even for strong prescriptions. From ¥6,600. Fastest — as little as 30 min.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=JINS%20Shibuya" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-g2" data-check="buy-g2"> Been</label></div></article>
+  </div>
+  <article class="card"><div class="card-head"><h4 class="card-name">OWNDAYS</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Multiple areas · Eyewear</p><p class="card-why">Broadest style range, unlimited free re-testing, advertises as fast as 20 min. ¥5,000–15,000+.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=OWNDAYS%20Shibuya" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-g3" data-check="buy-g3"> Been</label></div></article>
+  <p class="plain" style="color:var(--persimmon)">⚠ Specialty lenses (blue light, tints, high-index) can take ~1 week and don't ship internationally — do this on an early trip day if you want those, not near departure.</p>
+  <p class="plain" style="color:var(--slate)">Budget ¥5,000–20,000 ($35–140). Buy a serviced piece if you want it to keep time.</p>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-buy-w1" data-check="buy-w1"><label for="check-buy-w1"><b>Vintage Seiko</b> — Seiko 5, Cocktail Time, King Seiko, Lord Matic, Bell-Matic (alarm), 6139 chrono ("Pogue").</label></li>
+    <li><input type="checkbox" id="check-buy-w2" data-check="buy-w2"><label for="check-buy-w2"><b>Vintage Citizen / Orient</b> — Citizen Bullhead, Cosmotron; Orient divers &amp; dress autos. Cheap + characterful.</label></li>
+  </ul>
+  <p class="plain"><b>Where:</b> <b>Nakano Broadway</b> (watch-shop mecca, #1), <b>Hanazono Shrine flea market</b> (your Sun Sep 27), <b>Ameyoko</b> (Ueno, ~10 min), plus Komehyo / Hard Off / 2nd Street.</p>
+  <p class="plain" style="color:var(--persimmon)">⚠ Vintage cautions: budget ~$100–200 for a service; assume not water-resistant; watch for "frankenwatches" (mixed parts); cash + haggle at markets.</p>
+  <div class="card-foot" style="margin-top:2px"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Nakano%20Broadway%20watch%20shops%20Tokyo" target="_blank" rel="noopener">Nakano Broadway ↗</a></div>
+
+  <h2 class="sec">Grooming · barbershops</h2>
+  <p class="plain" style="color:var(--slate)">A hot-towel shave + shoulder massage is standard at a good Japanese barber. Book ahead (Hot Pepper Beauty app or the shop's Instagram DM); bring a reference photo. ~¥6,000–10,000.</p>
+  <article class="card"><div class="card-head"><h4 class="card-name">Wolfman Barber Shop</h4><span class="badge b-short">top pick</span></div><p class="card-meta">Jingumae/Harajuku · Barber</p><p class="card-why">Rugged 1930s-lounge vibe, antique furniture, Rockabilly styles + traditional wet shaves. Your exact aesthetic — and steps from the Harajuku vintage shops.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Wolfman%20Barber%20Shop%20Jingumae%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-b1" data-check="buy-b1"> Been</label></div></article>
+  <article class="card"><div class="card-head"><h4 class="card-name">Mr. Brothers Cut Club</h4><span class="badge b-short">shortlisted</span></div><p class="card-meta">Harajuku / Nakameguro · Barber</p><p class="card-why">The "neo-vintage" gold standard of modern Japanese barbering; masters of the fade, American + Japanese precision.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Mr%20Brothers%20Cut%20Club%20Harajuku" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-b2" data-check="buy-b2"> Been</label></div></article>
+  <div class="cards-2">
+    <article class="card"><div class="card-head"><h4 class="card-name">Barbering Method</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Aoyama · Barber (est. 1934)</p><p class="card-why">Heritage lineage, British + Japanese craft, straight-razor shave + shoulder massage in a private room. English. Premium.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Barbering%20Method%20Aoyama%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-b3" data-check="buy-b3"> Been</label></div></article>
+    <article class="card"><div class="card-head"><h4 class="card-name">Riyō Kaneko</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Fudomae · Traditional tokoya</p><p class="card-why">Old-school neighborhood barber — the full traditional ritual: cut, shampoo, shave, massage. The authentic local gem.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Riyo%20Kaneko%20barber%20Fudomae%20Tokyo" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-b4" data-check="buy-b4"> Been</label></div></article>
+  </div>
+  <article class="card"><div class="card-head"><h4 class="card-name">FRANK's Barber &amp; Beer Club</h4><span class="badge b-idea">idea</span></div><p class="card-meta">Hibiya · Barber + bar</p><p class="card-why">Cut with a craft beer in hand; English-speaking, the easiest to book as a foreigner.</p><div class="card-foot"><a class="maps" href="https://www.google.com/maps/search/?api=1&query=Frank%27s%20Barber%20and%20Beer%20Club%20Hibiya" target="_blank" rel="noopener">Directions ↗</a><label class="tick"><input type="checkbox" id="check-buy-b5" data-check="buy-b5"> Been</label></div></article>
+</section>
+
+<!-- ===================== PHASE 7 — PREP (before you go) ===================== -->
+<section class="phase" id="p7">
+  <p class="phase-intro">Everything to do, buy, and pack before you fly. Deadlines come first; below them is an itemized shopping list you can tick off at the store, one item at a time.</p>
+
+  <h2 class="sec">⏰ Do now · deadlines</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-d1" data-check="prep-d1"><label for="check-prep-d1"><b>Check every medication by active ingredient</b> vs Japan's import rules. Check the exact formulation and quantity, including combination products. <b>Avoid the "-D" decongestants</b> (pseudoephedrine: Sudafed, Claritin-D, Zyrtec-D, Allegra-D). Include Amalia's cold/cough syrups.</label></li>
+    <li><input type="checkbox" id="check-prep-d2" data-check="prep-d2"><label for="check-prep-d2"><b>If anyone takes ADHD stimulants or codeine:</b> Check each active ingredient with Japan’s Narcotics Control Department. <b>Vyvanse requires advance permission; it is not categorically prohibited.</b> Adderall is treated differently. The required process depends on the substance. <a href="https://www.ncd.mhlw.go.jp/en/application2.html">Official guidance ↗</a></label></li>
+    <li><input type="checkbox" id="check-prep-d3" data-check="prep-d3"><label for="check-prep-d3"><b>🔴 Book middle-leg rooms</b> (Karuizawa + Toyama, free cancellation) — <b>both options remain under comparison.</b> If holding both, record each actual cancellation deadline in Japan time before deciding.</label></li>
+    <li><input type="checkbox" id="check-prep-d4" data-check="prep-d4"><label for="check-prep-d4"><b>Confirm the second Tokyo booking</b> — Grand MONday Ueno Okachimachi was discussed and you agreed to book. Confirm completion before making another reservation. Actual rate, booking status and cancellation terms need confirmation.</label></li>
+    <li><input type="checkbox" id="check-prep-d5" data-check="prep-d5"><label for="check-prep-d5"><b>🔴 Confirm EN The House</b> = washer-dryer + sleeps 4; <b>confirm the booked Kanazawa property and its bedding</b>. Forza does not universally require two rooms.</label></li>
+    <li><input type="checkbox" id="check-prep-d6" data-check="prep-d6"><label for="check-prep-d6"><b>Weather cadence</b> — check the 10-day forecast now, again around <b>Sep 20</b> (when Sep 25–28 enters the reliable window), and 2 days before each leg. Live links are at the top of every phase tab.</label></li>
+  </ul>
+
+  <h2 class="sec">💊 Travel health kit · buy &amp; pack</h2>
+  <p class="plain" style="color:var(--slate)">One small pouch. Check ingredients and quantities against official import guidance; keep medicines in original packaging.</p>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-h1" data-check="prep-h1"><label for="check-prep-h1">Ibuprofen (adult)</label></li>
+    <li><input type="checkbox" id="check-prep-h2" data-check="prep-h2"><label for="check-prep-h2">Acetaminophen / Tylenol (adult)</label></li>
+    <li><input type="checkbox" id="check-prep-h3" data-check="prep-h3"><label for="check-prep-h3">Children's acetaminophen/ibuprofen — in Amalia's usual dosing</label></li>
+    <li><input type="checkbox" id="check-prep-h4" data-check="prep-h4"><label for="check-prep-h4">Non-drowsy antihistamine — <b>plain</b> Claritin / Zyrtec / Allegra (NOT the "-D")</label></li>
+    <li><input type="checkbox" id="check-prep-h5" data-check="prep-h5"><label for="check-prep-h5">Anti-diarrheal (Imodium)</label></li>
+    <li><input type="checkbox" id="check-prep-h6" data-check="prep-h6"><label for="check-prep-h6">Motion-sickness tablets (Dramamine)</label></li>
+    <li><input type="checkbox" id="check-prep-h7" data-check="prep-h7"><label for="check-prep-h7">Oral rehydration packets (Pedialyte / LMNT)</label></li>
+    <li><input type="checkbox" id="check-prep-h8" data-check="prep-h8"><label for="check-prep-h8">Band-aids + blister plasters (Compeed)</label></li>
+    <li><input type="checkbox" id="check-prep-h9" data-check="prep-h9"><label for="check-prep-h9">Antiseptic (Neosporin / alcohol wipes)</label></li>
+    <li><input type="checkbox" id="check-prep-h10" data-check="prep-h10"><label for="check-prep-h10">Digital thermometer</label></li>
+    <li><input type="checkbox" id="check-prep-h11" data-check="prep-h11"><label for="check-prep-h11">Hand sanitizer</label></li>
+    <li><input type="checkbox" id="check-prep-h12" data-check="prep-h12"><label for="check-prep-h12">Daily prescription meds — trip's supply + a few extra days, in original bottles</label></li>
+  </ul>
+
+  <h2 class="sec">📄 Docs &amp; admin</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-a1" data-check="prep-a1"><label for="check-prep-a1">Passports for all three adults + <b>Amalia's own passport</b></label></li>
+    <li><input type="checkbox" id="check-prep-a2" data-check="prep-a2"><label for="check-prep-a2">Allergy card in Japanese (if Amalia or anyone has food allergies)</label></li>
+    <li><input type="checkbox" id="check-prep-a3" data-check="prep-a3"><label for="check-prep-a3">Printed hotel names + addresses <b>in Japanese</b> (backup if a phone dies in a taxi)</label></li>
+    <li><input type="checkbox" id="check-prep-a4" data-check="prep-a4"><label for="check-prep-a4">Travel insurance sorted</label></li>
+    <li><input type="checkbox" id="check-prep-a5" data-check="prep-a5"><label for="check-prep-a5"><b>Register on Visit Japan Web</b> — immigration + customs + tax-free, done online in advance. <b>Official site only:</b> vjw.digital.go.jp or services.digital.go.jp/en/visit-japan-web/. It is <b>free</b> — any site charging a "processing fee" is fake. Register your wife and Amalia under your account using "register family travelling with you". Screenshot the 2D QR code before boarding. (Optional — paper forms are still accepted.)</label></li>
+  </ul>
+
+  <h2 class="sec">📱 Set up before you fly</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-s1" data-check="prep-s1"><label for="check-prep-s1"><b>Install Ubigi eSIM</b> (over Wi-Fi, don't activate till you land); keep T-Mobile for your number + 2FA (data roaming OFF)</label></li>
+    <li><input type="checkbox" id="check-prep-s2" data-check="prep-s2"><label for="check-prep-s2">Confirm iPhone unlocked — Settings → General → About → Carrier Lock = "No SIM restrictions"</label></li>
+    <li><input type="checkbox" id="check-prep-s3" data-check="prep-s3"><label for="check-prep-s3"><b>Suica/Pasmo in Apple Wallet</b> (tap for trains, konbini, vending). Under-six fare exceptions apply: a child ticket is needed for her own reserved seat. <a href="https://www.jreast.co.jp/en/multi/faq/">JR East guidance ↗</a></label></li>
+    <li><input type="checkbox" id="check-prep-s4" data-check="prep-s4"><label for="check-prep-s4">Download <b>offline Google Maps</b> for Tokyo + Kanazawa for area reference. Offline walking and transit directions are unavailable; save key station exits and routes separately.</label></li>
+  </ul>
+
+  <h2 class="sec">🛒 Buy beforehand</h2>
+  <p class="plain" style="color:var(--slate)">Almost all clothing is bought in Japan (see the Buy-list tab). Only these leave-the-house purchases matter:</p>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-b1" data-check="prep-b1"><label for="check-prep-b1"><b>Rain shell</b> — Marmot PreCip Eco (~$60), day-one cover <span style="color:var(--slate)">(or buy the Montbell Versalite in Tokyo)</span></label></li>
+    <li><input type="checkbox" id="check-prep-b2" data-check="prep-b2"><label for="check-prep-b2"><b>14" padded laptop sleeve</b> (~$15) for the ThinkPad to ride in the Daylite</label></li>
+    <li><input type="checkbox" id="check-prep-b3" data-check="prep-b3"><label for="check-prep-b3">Shoes ✓ (XT-6) and trousers ✓ already done</label></li>
+    <li><input type="checkbox" id="check-prep-b4" data-check="prep-b4"><label for="check-prep-b4">Optional: 2–3 nice tees (A&amp;F / Buck Mason) — otherwise buy tops in Japan</label></li>
+    <li><input type="checkbox" id="check-prep-b5" data-check="prep-b5"><label for="check-prep-b5"><b>Empty travel tubes / silicone bottles</b> (TSA-size) — for refilling sensitive-skin shaving cream and other products you can't easily swap for a local equivalent</label></li>
+  </ul>
+  <p class="plain" style="color:var(--slate)">No plug adapter needed — Japan uses the same flat 2-prong as the US (100V; fine for chargers, weak for hair dryers).</p>
+
+  <h2 class="sec">🎒 Pack from home · fit-critical</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-p1" data-check="prep-p1"><label for="check-prep-p1">XT-6 shoes · 2 trousers · 2–3 tees + 1–2 quick-dry · 1 light layer · 2–3 days underclothes · sleep set · sunglasses</label></li>
+    <li><input type="checkbox" id="check-prep-p2" data-check="prep-p2"><label for="check-prep-p2">Bags: Patagonia ~45L (clothes, forwarded) + Osprey Daylite 20L (laptops on transit / daypack)</label></li>
+    <li><input type="checkbox" id="check-prep-p3" data-check="prep-p3"><label for="check-prep-p3">Tech: both laptops, phones, power bank (carry-on only), chargers + cables</label></li>
+  </ul>
+
+  <h2 class="sec">👶 Kid gear · buy before Japan</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-k1" data-check="prep-k1"><label for="check-prep-k1"><b>Lightweight foldable stroller</b> — one-handed fold, light enough to carry up stairs</label></li>
+    <li><input type="checkbox" id="check-prep-k2" data-check="prep-k2"><label for="check-prep-k2"><b>Stroller rain cover</b></label></li>
+    <li><input type="checkbox" id="check-prep-k3" data-check="prep-k3"><label for="check-prep-k3"><b>Soft carrier</b> — for temples, gravel, crowded trains, stairs (bring it AND the stroller)</label></li>
+    <li><input type="checkbox" id="check-prep-k4" data-check="prep-k4"><label for="check-prep-k4">Carabiner hooks — to hang bags off the stroller handle</label></li>
+    <li><input type="checkbox" id="check-prep-k5" data-check="prep-k5"><label for="check-prep-k5"><b>Slip-on shoes</b> for Amalia — velcro/elastic, no laces</label></li>
+    <li><input type="checkbox" id="check-prep-k6" data-check="prep-k6"><label for="check-prep-k6"><b>Non-skid socks</b> for Amalia — slippery ryokan/temple floors</label></li>
+    <li><input type="checkbox" id="check-prep-k7" data-check="prep-k7"><label for="check-prep-k7">Travel potty seat / disposable liners — older temples &amp; parks still have squat toilets</label></li>
+    <li><input type="checkbox" id="check-prep-k8" data-check="prep-k8"><label for="check-prep-k8">Kid headphones</label></li>
+    <li><input type="checkbox" id="check-prep-k9" data-check="prep-k9"><label for="check-prep-k9">Small bag of <b>quiet new toys</b> — stickers, Water Wow books (shinkansen + long dinners)</label></li>
+    <li><input type="checkbox" id="check-prep-k10" data-check="prep-k10"><label for="check-prep-k10">A stash of her <b>familiar snacks</b> from home</label></li>
+    <li><input type="checkbox" id="check-prep-k11" data-check="prep-k11"><label for="check-prep-k11">Diapers/pull-ups — <b>2 days only</b>, buy the rest in Japan (Merries/Moony, sized by kg — know her weight in kg)</label></li>
+  </ul>
+
+  <h2 class="sec">🧳 Everyday-practical (the stuff nobody warns you about)</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="check-prep-e1" data-check="prep-e1"><label for="check-prep-e1"><b>Small trash / wet bag</b> — Japan has almost no public bins; you carry your trash till you find one (the #1 surprise)</label></li>
+    <li><input type="checkbox" id="check-prep-e2" data-check="prep-e2"><label for="check-prep-e2"><b>3–4 small hand towels</b> — restrooms often have no paper towel or dryer</label></li>
+    <li><input type="checkbox" id="check-prep-e3" data-check="prep-e3"><label for="check-prep-e3"><b>Coin purse</b> — ¥100 and ¥500 coins pile up fast</label></li>
+    <li><input type="checkbox" id="check-prep-e4" data-check="prep-e4"><label for="check-prep-e4">Good socks + a spare pair each (you're shoeless at temples, tatami restaurants, ryokan)</label></li>
+    <li><input type="checkbox" id="check-prep-e5" data-check="prep-e5"><label for="check-prep-e5">A few face masks (normal to wear if anyone's sniffly)</label></li>
+    <li><input type="checkbox" id="check-prep-e6" data-check="prep-e6"><label for="check-prep-e6">Compact umbrella per adult + a stroller clip-on (or buy ~¥500 at any konbini)</label></li>
+    <li><input type="checkbox" id="check-prep-e7" data-check="prep-e7"><label for="check-prep-e7">Cash from a 7-Eleven ATM on arrival</label></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p class="legend" style="margin:0 0 10px">
+    <span class="badge b-booked">booked</span> locked &nbsp;
+    <span class="badge b-short">shortlisted</span> leading &nbsp;
+    <span class="badge b-idea">idea</span> on radar &nbsp;
+    <span class="badge b-tbd">TBD</span> open &nbsp;
+    <span class="badge b-buy">buy there</span> in Japan
+  </p>
+  Personal field guide · progress saves in this browser · export a backup to transfer progress
+</footer>
+
+<script>
+  // --- build in-tab section chips (auto from h2.sec) ---
+  document.querySelectorAll('.phase').forEach(function(ph){
+    var heads = ph.querySelectorAll('h2.sec');
+    if(heads.length < 3) return;
+    var chips = document.createElement('div');
+    chips.className = 'chips';
+    heads.forEach(function(h, i){
+      var id = h.id || ph.id + '-s' + i;
+      h.id = id; h.classList.add('anchor-pad');
+      var a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = h.textContent.replace(/[·•]/g,'·').trim();
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        h.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+      chips.appendChild(a);
+    });
+    var wx = ph.querySelector('.weather');
+    var intro = ph.querySelector('.phase-intro');
+    var after = wx || intro;
+    if(after) after.parentNode.insertBefore(chips, after.nextSibling);
+    else ph.insertBefore(chips, ph.firstChild);
+  });
+
+  // --- tab switching (remembers last tab) ---
+  var stations = document.querySelectorAll('.station');
+  var phases = document.querySelectorAll('.phase');
+  function activate(id){
+    stations.forEach(function(s){ s.classList.toggle('active', s.dataset.tab===id); s.setAttribute('aria-pressed',String(s.dataset.tab===id)); });
+    phases.forEach(function(p){ p.classList.toggle('active', p.id===id); });
+    try{ localStorage.setItem('japan2026-enhanced-tab', id); }catch(e){}
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  stations.forEach(function(s){ s.addEventListener('click', function(){ activate(s.dataset.tab); }); });
+  try{ var saved = localStorage.getItem('japan2026-enhanced-tab'); if(saved && document.getElementById(saved)) activate(saved); }catch(e){}
+
+  // --- persistent checkboxes ---
+  var boxes = document.querySelectorAll('input[type=checkbox][data-check]');
+  boxes.forEach(function(b){
+    var key = 'japan2026-enhanced-'+b.dataset.check;
+    try{ if(localStorage.getItem(key)==='1'){ b.checked=true; } }catch(e){}
+    if(b.closest('li')) b.closest('li').classList.toggle('done', b.checked);
+    b.addEventListener('change', function(){
+      try{ localStorage.setItem(key, b.checked?'1':'0'); }catch(e){}
+      if(b.closest('li')) b.closest('li').classList.toggle('done', b.checked);
+    });
+  });
+
+// Accessible navigation, searchable reference content and portable progress.
+const statusEl=document.getElementById('progress-status');
+document.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',()=>{activate(b.dataset.jump);history.replaceState(null,'','#'+b.dataset.jump)}));
+stations.forEach(b=>{b.setAttribute('aria-pressed',String(b.classList.contains('active')));b.addEventListener('click',()=>history.replaceState(null,'','#'+b.dataset.tab))});
+function openHash(){const el=document.getElementById(location.hash.slice(1));if(!el)return;const ph=el.classList.contains('phase')?el:el.closest('.phase');if(ph){activate(ph.id);if(el!==ph)el.scrollIntoView()}}
+window.addEventListener('hashchange',openHash);openHash();
+document.querySelectorAll('.chips a').forEach(a=>a.addEventListener('click',()=>history.replaceState(null,'',a.getAttribute('href'))));
+const entries=[...document.querySelectorAll('.phase .card,.phase ul.checklist li,.phase .buy-record')];
+const search=document.getElementById('guide-search'),results=document.getElementById('search-results');
+search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();results.replaceChildren();document.querySelectorAll('.phase').forEach(p=>p.classList.toggle('filter-hidden',!!q));if(!q)return;const matches=entries.filter(e=>e.textContent.toLowerCase().includes(q));const count=document.createElement('p');count.textContent=matches.length+' matches across your guide';results.append(count);matches.forEach(e=>{const card=document.createElement('article');card.className='search-result';const heading=document.createElement('h3');heading.textContent=e.querySelector('.card-name')?.textContent||'Checklist item';const body=document.createElement('p');body.textContent=e.querySelector('.card-why')?.textContent||e.querySelector('label')?.textContent||e.textContent;const b=document.createElement('button');b.textContent='Open in guide →';b.addEventListener('click',()=>{search.value='';search.dispatchEvent(new Event('input'));activate(e.closest('.phase').id);e.scrollIntoView({block:'center'});});card.append(heading,body,b);results.append(card)})});
+document.getElementById('print-guide').addEventListener('click',()=>{search.value='';search.dispatchEvent(new Event('input'));window.print()});
+function progress(){return Object.fromEntries([...boxes].map(b=>[b.dataset.check,b.checked]))}
+document.getElementById('export-progress').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({trip:'japan-2026',version:2,checks:progress(),fields:fieldValues()},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='japan-2026-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);statusEl.textContent='Progress backup downloaded. It contains checklist states only.'});
+document.getElementById('import-progress').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const v=JSON.parse(await f.text());if(v.trip!=='japan-2026'||!v.checks||typeof v.checks!=='object')throw Error();boxes.forEach(b=>{if(typeof v.checks[b.dataset.check]==='boolean'){b.checked=v.checks[b.dataset.check];b.dispatchEvent(new Event('change'))}});restoreFields(v.fields);statusEl.textContent='Progress loaded into this browser.'}catch(err){statusEl.textContent='This file is not a valid Japan 2026 progress backup.'}e.target.value=''});
+
+const editable=[...document.querySelectorAll('[data-field]')];
+const shoppingKeys=['denim','glasses','watch','electronics','jacket','bags','notebook','barber','family','other'];
+function fieldValues(){return Object.fromEntries(editable.map(x=>[x.dataset.field,x.value]))}
+function validFieldValue(el,value){if(typeof value!=='string'||value.length>4000)return false;if(el.tagName==='SELECT')return [...el.options].some(o=>o.value===value);return true}
+function restoreFields(data){if(!data||typeof data!=='object'||Array.isArray(data))return;editable.forEach(el=>{const v=data[el.dataset.field];if(validFieldValue(el,v)){el.value=v;saveField(el)}});refreshExtras()}
+function saveField(el){try{localStorage.setItem('japan2026-field-'+el.dataset.field,el.value)}catch(err){statusEl.textContent='Browser storage is unavailable. Use Save progress before closing.'}}
+editable.forEach(el=>{try{const v=localStorage.getItem('japan2026-field-'+el.dataset.field);if(validFieldValue(el,v))el.value=v}catch(err){};el.addEventListener('input',()=>{saveField(el);refreshExtras()});el.addEventListener('change',()=>{saveField(el);refreshExtras()})});
+function yenValue(value){if(typeof value!=='string'||value.trim()==='')return null;const n=Number(value);return Number.isFinite(n)&&n>=0?n:null}
+function refreshExtras(){const values=fieldValues();let spent=0,entered=0;shoppingKeys.forEach(k=>{const n=yenValue(values[k+'-price']);if(n!==null){spent+=n;entered++}});const budget=yenValue(values['total-budget']);const formatted=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(n);document.getElementById('shopping-totals').textContent=entered?'Recorded spending: '+formatted(spent)+' across '+entered+' categories'+(budget===null?' · No overall cap':spent>budget?' · Over budget by '+formatted(spent-budget):' · Remaining against budget: '+formatted(budget-spent)):'No spending entered yet'+(budget===null?' · No overall cap':' · Budget: '+formatted(budget));const over=shoppingKeys.filter(k=>{const n=yenValue(values[k+'-item-usd']);return n!==null&&n>500});const checked=shoppingKeys.filter(k=>yenValue(values[k+'-item-usd'])!==null).length;document.getElementById('item-limit-status').textContent=over.length?'Above your US$500 per-item ceiling: '+over.join(', '):checked?'Entered item estimates are within US$500; unentered items are not assessed.':'US$500 per-item ceiling · Enter item estimates to check them.';const reminders=document.getElementById('pickup-list');reminders.replaceChildren();shoppingKeys.filter(k=>values[k+'-pickup']&&values[k+'-state']!=='bought').sort((a,b)=>values[a+'-pickup'].localeCompare(values[b+'-pickup'])).forEach(k=>{const li=document.createElement('li');li.textContent=k.charAt(0).toUpperCase()+k.slice(1)+' — '+values[k+'-pickup'].replace('T',' ')+' JST'+(values[k+'-shop']?' · '+values[k+'-shop']:' · Shop not entered');reminders.append(li)});if(!reminders.children.length){const li=document.createElement('li');li.textContent='No uncollected purchases or appointments with a deadline entered.';reminders.append(li)}document.querySelectorAll('.hotel-route').forEach(p=>{const city=p.dataset.hotelCity;const destination=(values['hotel-'+city]||p.dataset.default||'').trim();p.replaceChildren();if(!destination){p.textContent='Add the confirmed hotel above to enable its map link.';return}const a=document.createElement('a');a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(destination);a.target='_blank';a.rel='noopener';a.textContent='Open hotel in Maps ↗';p.append(a)});editable.forEach(el=>{let span=el.parentElement.querySelector('.print-value');if(!span){span=document.createElement('span');span.className='print-value';el.parentElement.append(span)}span.textContent=(el.tagName==='SELECT'?el.selectedOptions[0]?.textContent:el.value)||'Not entered'})}
+const quickCity=document.getElementById('quick-city');
+function filterCity(){document.querySelectorAll('.quick-panel [data-city]').forEach(el=>el.hidden=el.dataset.city!==quickCity.value)}
+quickCity.addEventListener('change',filterCity);const initialCity={p1:'asakusa',p3:'kanazawa',p4:'return'}[document.querySelector('.phase.active')?.id];if(initialCity)quickCity.value=initialCity;filterCity();
+document.querySelectorAll('[data-quick]').forEach(b=>b.addEventListener('click',()=>{const target=document.getElementById('quick-'+b.dataset.quick);const willOpen=!target.open;document.querySelectorAll('.quick-panel').forEach(p=>p.open=false);target.open=willOpen;document.querySelectorAll('[data-quick]').forEach(x=>x.setAttribute('aria-expanded',String(x===b&&willOpen)))}));
+document.querySelectorAll('.quick-panel').forEach(p=>p.addEventListener('toggle',()=>{document.querySelector('[data-quick="'+p.id.replace('quick-','')+'"]').setAttribute('aria-expanded',String(p.open))}));
+stations.forEach(b=>b.addEventListener('click',()=>{search.value='';search.dispatchEvent(new Event('input'));const city={p1:'asakusa',p3:'kanazawa',p4:'return'}[b.dataset.tab];if(city){quickCity.value=city;filterCity()}}));
+// Internal links reveal hidden sections even when a full-guide search is active.
+document.addEventListener('click',ev=>{const a=ev.target.closest('a[href^="#"]');if(!a||a.closest('.chips'))return;const id=a.getAttribute('href').slice(1);const target=document.getElementById(id);if(!target)return;ev.preventDefault();search.value='';search.dispatchEvent(new Event('input'));const ph=target.closest('.phase');if(ph)activate(ph.id);history.replaceState(null,'','#'+id);target.scrollIntoView({block:'start'})});
+refreshExtras();
+let printOpen=[];window.addEventListener('beforeprint',()=>{printOpen=[...document.querySelectorAll('details')].map(el=>[el,el.open]);printOpen.forEach(([el])=>el.open=true);refreshExtras()});window.addEventListener('afterprint',()=>printOpen.forEach(([el,wasOpen])=>el.open=wasOpen));
+</script>
+</body>
+</html>
