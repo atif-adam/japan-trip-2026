@@ -687,6 +687,93 @@ Walkable riverside views.
 
 - [ ] Confirm EN The House = washer-dryer + sleeps 4
 
+## Choose an outing · Around Asakusa & east Tokyo
+
+Choose for September 26–27. September 28 stays a transfer day. Pick one main activity; everything inside each card is optional.
+
+Asakusa earlyTemple, riverside and craft browsing close to your first base.Main activity: Sensō-ji & Asakusa Shrine
+
+Nearby choices · add one if the day allows.
+
+Kappabashi. Kitchen tools, knives and lacquerware. Chris suggests Saturday; check individual shop days.
+
+Sumida River & Sumida Park. An outdoor pause, with an easy finish back at the hotel.
+
+Sumida Aquarium. An indoor alternative after a rest. Check admission and opening hours.
+
+Riverboat to Hama-rikyū. A separate extension: check sailing times and garden access before choosing it.
+
+Before choosing: Keep arrival night light. September 26–27 are your full days here; September 28 is the middle-leg transfer.
+
+Food check: Choose snacks by ingredients; meat buns and menchi-katsu can contain pork.
+
+[Find Sensō-ji & Asakusa Shrine ↗](https://www.google.com/maps/search/?api=1&query=Sens%C5%8D-ji%20%26%20Asakusa%20Shrine%20Tokyo)
+Yanaka & NezuBuild your existing Yanaka stop into an old-town walk.Main activity: Yanaka Ginza & temple lanes
+
+Nearby choices · add one if the day allows.
+
+Nezu Shrine. Optional shrine stop if everyone wants more walking.
+
+Asakura Museum of Sculpture. House, sculpture and courtyard garden. Confirm opening days, child admission and stroller rules before adding it.
+
+SCAI The Bathhouse. A short gallery visit only if an exhibition is open; check the calendar.
+
+Before choosing: A neighborhood walk can stand alone. Museum and gallery closures apply separately, especially on Mondays.
+
+Food check: Check fillings in fried snacks; a snack category alone does not establish that it is pork-free.
+
+[Find Yanaka Ginza & temple lanes ↗](https://www.google.com/maps/search/?api=1&query=Yanaka%20Ginza%20%26%20temple%20lanes%20Tokyo)
+Ryōgoku & KiyosumiA new history outing, with garden and coffee options afterward.Main activity: Edo-Tokyo Museum
+
+Nearby choices · add one if the day allows.
+
+Sumida Hokusai Museum. Choose as an alternative museum or add only if you still want more.
+
+Kiyosumi Garden & coffee streets. A separate transit extension; a garden-and-café outing can also stand alone.
+
+Inoue tool shop, Tatekawa. Chris’s woodworking lead. Current operation is unverified; call before making the trip.
+
+September 27 sumo. Chris’s long-shot idea. No ticket availability has been verified; not part of the plan.
+
+Before choosing: The Edo-Tokyo Museum confirms its March 31, 2026 reopening. Check the visit calendar and tickets; do not assume a Monday opening.
+
+Food check: For chanko-nabe, ask about both meat and broth.
+
+[Find Edo-Tokyo Museum ↗](https://www.google.com/maps/search/?api=1&query=Edo-Tokyo%20Museum%20Tokyo)[Official museum information ↗](https://www.edo-tokyo-museum.or.jp/en/about/)
+Hama-rikyū & the bayA garden-and-water alternative to a shopping day.Main activity: Hama-rikyū Garden & teahouse
+
+Nearby choices · add one if the day allows.
+
+Tsukiji Outer Market. If choosing a morning market visit, put it before the garden; check individual stall days.
+
+Ginza food halls. A possible meal stop or indoor alternative.
+
+teamLab Planets, Toyosu. Treat as a separate timed main activity. Check tickets and child/water-area guidance first.
+
+Before choosing: The riverboat from Asakusa needs a timetable check. Garden, market and Toyosu are not one compact walking loop.
+
+Food check: Seafood choices still need ingredient checks for sauces, fillings and mixed dishes.
+
+[Find Hama-rikyū Garden & teahouse ↗](https://www.google.com/maps/search/?api=1&query=Hama-riky%C5%AB%20Garden%20%26%20teahouse%20Tokyo)
+ShibamataA distinctive option for shared craft and architecture interests.Main activity: Taishakuten temple woodcarvings
+
+Nearby choices · add one if the day allows.
+
+Suikei-en garden. Pair with the carving galleries; confirm current admission arrangements.
+
+Yamamoto-tei. Optional house and garden visit.
+
+Yagiri ferry. Add only after checking operation, weather and return arrangements.
+
+Before choosing: Allow a deliberate journey from either Tokyo base. Skip the ferry if it makes the day too long.
+
+Food check: Dango or an eel lunch are possibilities; confirm ingredients at the shop.
+
+[Find Taishakuten temple woodcarvings ↗](https://www.google.com/maps/search/?api=1&query=Taishakuten%20temple%20woodcarvings%20Tokyo)
+Adapted from [Chris’s Tokyo menu](https://claude.ai/artifact/RuxeWA8TQ3dtigYBczXk8h). Practical details need checking before you go; these are options, not bookings. Food notes flag ingredients to ask about.
+
+[See the other Tokyo outing choices →](#p4-outings)
+
 Decide on the 26/27. Book refundable rooms at both now, cancel the loser, buy the train day-of.
 
 Weather · Sep 28–30 · Middle legKaruizawa cooler · Toyama ~22–25°C 
@@ -1048,6 +1135,106 @@ Leave Tokyo ~1:00 PM → correct Narita terminal by 2:50 PM for a full three-hou
 ## Open questions
 
 - [ ] Confirm whether the agreed Grand MONday Ueno Okachimachi booking was completed; record its actual terms
+
+## Choose an outing · Parks, craft & shopping
+
+October 4–5 are your full days. On October 4, compare these with Oedo/Ginza/Sanrio; check Monday closures for October 5. Pick one main activity; everything inside each card is optional.
+
+Ueno ParkChoose one family or culture anchor, then take a park break.Main activity: Ueno Zoo OR a museum
+
+Nearby choices · add one if the day allows.
+
+Shinobazu Pond. A gentle park stop; check boat operation if you want to go on the water.
+
+National Museum of Nature and Science. An indoor alternative to the zoo; check access to child-focused activities.
+
+Tokyo National Museum. A craft-focused alternative for lacquer, metalwork and carving.
+
+Ameyoko. Your existing market option; leave it for a moment when everyone has energy.
+
+Before choosing: Check Monday closures carefully for October 5. An October 4 museum day competes with Oedo/Ginza/Sanrio; choose between them.
+
+Food check: Ask about broth and mixed meats rather than assuming all ramen or all park cafés use the same ingredients.
+
+[Find Ueno Zoo OR a museum ↗](https://www.google.com/maps/search/?api=1&query=Ueno%20Zoo%20OR%20a%20museum%20Tokyo)
+Yotsuya & ShinjukuExtend the rainy-day option already in your guide.Main activity: Tokyo Toy Museum
+
+Nearby choices · add one if the day allows.
+
+Shinjuku Gyoen. Optional outdoor extension; check its own closure calendar, especially Monday.
+
+Isetan food hall. An indoor meal stop if you continue toward Shinjuku.
+
+Before choosing: Official guidance: 10:00–16:00, closed Thursdays with calendar exceptions. Online and same-day tickets subject to capacity. The separate baby room is for ages two and under; it is not for Amalia at age three.
+
+Food check: Bring a familiar snack and choose lunch by ingredients.
+
+[Find Tokyo Toy Museum ↗](https://www.google.com/maps/search/?api=1&query=Tokyo%20Toy%20Museum%20Tokyo)[Hours & tickets ↗](https://art-play.or.jp/ttm/en/)[Detailed admission rules ↗](https://art-play.or.jp/ttm/info/)
+Nakameguro & DaikanyamaAn alternative to your Harajuku shopping outing, with books and cafés.Main activity: Denim & select shops
+
+Nearby choices · add one if the day allows.
+
+Daikanyama T-Site. Design books and browsing for the group.
+
+Kyū-Asakura House. Optional architecture and garden stop; check opening days before adding it.
+
+Meguro River. A shorter stroll or café pause if the shopping day runs out of energy.
+
+Before choosing: Choose exact denim shops and branches before leaving. Shop opening hours and the house calendar differ; this is not a fixed route.
+
+Food check: Check café dishes for bacon, ham and cooking ingredients.
+
+[Find Denim & select shops ↗](https://www.google.com/maps/search/?api=1&query=Denim%20%26%20select%20shops%20Tokyo)
+Komaba & ShimokitazawaA craft anchor before your existing vintage-shopping options.Main activity: Japan Folk Crafts Museum
+
+Nearby choices · add one if the day allows.
+
+Komaba Park & Maeda residence. Optional park or house visit, subject to separate opening days.
+
+Shimokitazawa vintage shops. Continue only if the group wants shopping after the museum.
+
+Bonus Track & Reload. Possible pause around the shopping lanes.
+
+Before choosing: Check the museum exhibition, child access and Monday closure before choosing. Shimokitazawa is a transit extension, not next door.
+
+Food check: For curry, confirm the stock and fat as well as the named meat or vegetables.
+
+[Find Japan Folk Crafts Museum ↗](https://www.google.com/maps/search/?api=1&query=Japan%20Folk%20Crafts%20Museum%20Tokyo)
+Meiji Jingū & HarajukuA cultural start to your existing Americana and barber outing.Main activity: Meiji Jingū forest walk
+
+Nearby choices · add one if the day allows.
+
+Yoyogi Park. An outdoor break rather than another formal attraction.
+
+Harajuku shops. Use your existing Berberjin and shopping shortlist; barber requires its own appointment.
+
+Nezu Museum. A separate garden/museum extension; check calendar and walking route.
+
+Takeshita Street. Only if someone wants the busy shopping street.
+
+Before choosing: Choose a short route for the group; assess gravel paths and stroller access. Museum hours are separate from shrine access.
+
+Food check: Plan a café stop outside the shrine grounds and check ingredients.
+
+[Find Meiji Jingū forest walk ↗](https://www.google.com/maps/search/?api=1&query=Meiji%20Jing%C5%AB%20forest%20walk%20Tokyo)
+Kichijōji & InokashiraA farther-out park day to choose only if the journey feels worthwhile.Main activity: Inokashira Park & lake
+
+Nearby choices · add one if the day allows.
+
+Ghibli Museum. Only with confirmed advance tickets; if booked, make this the main activity.
+
+Inokashira Park Zoo. Optional; check Monday closure and animal-interaction availability.
+
+Sun Road & Harmonica Yokochō. Shopping and food possibilities near the station.
+
+Before choosing: Ghibli overseas tickets use monthly advance sales: 10:00 JST on the 10th for the next month. No group tickets are confirmed. Check the exact date on the official calendar; do not rely on the Monday badge in Chris’s list.
+
+Food check: Check fried meat mixtures and restaurant ingredients.
+
+[Find Inokashira Park & lake ↗](https://www.google.com/maps/search/?api=1&query=Inokashira%20Park%20%26%20lake%20Tokyo)[Ghibli tickets & calendar ↗](https://www.ghibli-museum.jp/en/tickets/)
+Adapted from [Chris’s Tokyo menu](https://claude.ai/artifact/RuxeWA8TQ3dtigYBczXk8h). Practical details need checking before you go; these are options, not bookings. Food notes flag ingredients to ask about.
+
+[See the other Tokyo outing choices →](#p1-outings)
 
 The cross-cutting stuff: bags, shoes, rain, clothes, connectivity, weather.
 
