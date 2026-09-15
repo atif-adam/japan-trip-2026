@@ -7,7 +7,7 @@ Field Guide · living plan
 # Japan 2026
 
 Sep 25 – Oct 6 · Atif, Sunyia, Chris + Amalia
-Overviewstart here Tokyo25–28 Middle28–30 Kanazawa30–3 Tokyo3–6 Gearall Buy listshop   
+Overviewstart here Tokyo25–28 Middle28–30 Kanazawa30–3 Tokyo3–6 Gearall Buy listshop Money & Sizesquick reference  
 Print allSave progressLoad progress
 Checklists, shopping notes and hotel addresses save in this browser. Save progress backs them up; the backup may contain personal details.
 
@@ -1464,6 +1464,558 @@ Hibiya · Barber + bar
 Cut with a craft beer in hand; English-speaking, the easiest to book as a foreigner.
 
 [Directions ↗](https://www.google.com/maps/search/?api=1&query=Frank%27s%20Barber%20and%20Beer%20Club%20Hibiya)- [ ]  Been
+
+Money & Sizes · a pocket reference for prices, yen and finding a good fit.
+
+[Converter](#money-convert)[7-Eleven prices](#money-konbini)[Shopping prices](#money-shopping)[Your sizes](#money-fit)[Specialty stores](#money-stores)[Measurements](#money-measure)
+
+## At the counter
+
+Yen ↔ US dollarsConvert a price and see your US$500 item ceiling.
+
+Default: ¥160 = US$1, a round planning assumption, not a live exchange quote. Change it to your card’s rate. Bigger yen-per-dollar numbers make the same yen price cheaper in USD.
+
+Yen per US$1Optional conversion / card fee · %AmountAmount is inJapanese yen · JPYUS dollars · USD
+¥1,000 ≈ $6.25 · before fees
+This tab uses ¥160 per US$1. Price-table USD values exclude fees.
+
+Your US$500 per-item ceiling ≈ ¥80,000 before fees.
+
+In USD mode, the amount is the pre-fee value; the final estimate adds the optional fee. Fixed ATM fees are separate. Your rate and fee save with the guide’s progress; all prices in this tab recalculate.
+[Bank of Japan exchange-rate reference ↗](https://www.boj.or.jp/en/statistics/market/forex/fxdaily/fxlist/index.htm)
+Quick amounts & mental mathCoins, notes and shopping amounts at the selected rate.
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| ¥100 | ¥100 | $0.62 | Reference amount | 
+
+| ¥500 | ¥500 | $3.12 | Reference amount | 
+
+| ¥1,000 | ¥1,000 | $6.25 | Reference amount | 
+
+| ¥2,000 | ¥2,000 | $12.50 | Reference amount | 
+
+| ¥5,000 | ¥5,000 | $31.25 | Reference amount | 
+
+| ¥10,000 | ¥10,000 | $62.50 | Reference amount | 
+
+| ¥20,000 | ¥20,000 | $125.00 | Reference amount | 
+
+| ¥30,000 | ¥30,000 | $187.50 | Reference amount | 
+
+| ¥50,000 | ¥50,000 | $312.50 | Reference amount | 
+
+| ¥80,000 | ¥80,000 | $500.00 | Reference amount | 
+
+| ¥100,000 | ¥100,000 | $625.00 | Reference amount | 
+
+At ¥160/$: ¥800 ≈ $5; ¥1,600 ≈ $10; ¥8,000 ≈ $50. ¥10,000 is ichi-man en (一万円). A label reading 3万円 means ¥30,000.
+
+Coins: ¥1, ¥5, ¥10, ¥50, ¥100, ¥500. Notes: ¥1,000, ¥2,000 (less common), ¥5,000, ¥10,000. Keep some small notes and coins for small shops, lockers and machines.
+
+7-Eleven & convenience stores20 everyday items: drinks, snacks, meals and small essentials.
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| Water · 500–600 ml bottle | ¥100–180 | $0.62–$1.12 | Planning range; brand and bottle size | 
+
+| Tea / soft drink · bottle | ¥120–220 | $0.75–$1.38 | Planning range; vending machines may differ | 
+
+| Regular machine coffee · small | ¥140–170 | $0.88–$1.06 | Rounded current 7-Eleven menu examples | 
+
+| Machine latte · regular/large | ¥220–350 | $1.38–$2.19 | Rounded current 7-Eleven menu examples | 
+
+| Onigiri · standard, one | ¥160–280 | $1.00–$1.75 | Rounded examples; filling and region | 
+
+| Onigiri · premium / large, one | ¥280–450 | $1.75–$2.81 | Planning allowance; not every rice ball costs this much | 
+
+| Sandwich pack | ¥280–500 | $1.75–$3.12 | Rounded examples; fruit and specialty packs can exceed this | 
+
+| Bread / pastry · one | ¥130–300 | $0.81–$1.88 | Planning range | 
+
+| Bento / rice bowl · one | ¥450–900 | $2.81–$5.62 | Planning range; large and premium meals higher | 
+
+| Chilled noodles / pasta · one | ¥400–750 | $2.50–$4.69 | Planning range | 
+
+| Instant cup noodles · one | ¥150–350 | $0.94–$2.19 | Planning range | 
+
+| Side salad / vegetables · one | ¥200–450 | $1.25–$2.81 | Planning range | 
+
+| Yogurt / small dairy snack | ¥120–250 | $0.75–$1.56 | Planning range | 
+
+| Dessert / ice cream · one | ¥150–400 | $0.94–$2.50 | Planning range | 
+
+| Packaged snack / sweets | ¥120–350 | $0.75–$2.19 | Planning range | 
+
+| Cut fruit · small pack | ¥250–600 | $1.56–$3.75 | Planning range; fruit can be relatively pricey | 
+
+| Beer · 350 ml can | ¥200–350 | $1.25–$2.19 | Planning range; alcohol is not part of reduced food tax | 
+
+| Wet wipes / tissues · small pack | ¥100–350 | $0.62–$2.19 | Planning range | 
+
+| Clear umbrella · one | ¥600–1,200 | $3.75–$7.50 | Planning range; compact branded umbrellas higher | 
+
+| Phone cable / basic charger | ¥1,000–3,000 | $6.25–$18.75 | Planning range; check connector and power rating | 
+
+Rounded planning ranges, aiming to include ordinary shelf tax. Selected coffee, rice-ball and sandwich examples checked September 15, 2026; other rows are allowances, not verified branch prices. Region, season and stock vary. Food prices do not establish dietary suitability.
+
+[7-Eleven coffee menu ↗](https://www.sej.co.jp/products/sevencafe/include_commonarea.html) · [7-Eleven rice balls ↗](https://www.sej.co.jp/products/a/onigiri/) · [7-Eleven sandwiches ↗](https://www.sej.co.jp/products/a/itemresult/?key=%E3%82%B5%E3%83%B3%E3%83%89&limit=100&p=1) · [7-Eleven meal boxes ↗](https://www.sej.co.jp/products/a/bento/)
+
+Cafés, meals & easy basketsPer-person meals, plus a few worked examples.
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| Simple breakfast · adult | ¥500–1,000 | $3.12–$6.25 | Planning range; café set or convenience-store meal | 
+
+| Specialty coffee · cup | ¥450–850 | $2.81–$5.31 | Planning range | 
+
+| Coffee + pastry · adult | ¥700–1,400 | $4.38–$8.75 | Planning range | 
+
+| Udon / soba / ramen · bowl | ¥700–1,600 | $4.38–$10.00 | Planning range; check broth ingredients | 
+
+| Casual set lunch · adult | ¥1,000–2,200 | $6.25–$13.75 | Planning range | 
+
+| Sushi / seafood lunch · adult | ¥1,800–4,000 | $11.25–$25.00 | Planning range; market and premium seafood higher | 
+
+| Casual dinner · adult | ¥1,800–4,000 | $11.25–$25.00 | Planning range, without substantial drinks | 
+
+| Nicer dinner · adult | ¥4,000–9,000 | $25.00–$56.25 | Planning range; course and service charges vary | 
+
+| Premium tasting meal · adult | ¥10,000–25,000 | $62.50–$156.25 | Planning range; some venues exceed this | 
+
+| Child meal / small dish | ¥400–1,200 | $2.50–$7.50 | Planning allowance; availability varies | 
+
+| Restaurant drink · one | ¥300–900 | $1.88–$5.62 | Planning range; alcohol/cocktails can be higher | 
+
+| Food-hall takeaway · adult meal | ¥1,000–2,500 | $6.25–$15.62 | Planning range; multiple small boxes add up | 
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| Quick breakfast · one adult | ¥620 | $3.88 | Example: two ¥220 rice balls + ¥180 tea | 
+
+| Sandwich lunch · one adult | ¥960 | $6.00 | Example: ¥400 sandwich + ¥380 salad + ¥180 drink | 
+
+| Meal-box dinner · one adult | ¥900 | $5.62 | Example: ¥700 bento + ¥200 drink | 
+
+| Three adult breakfasts + child snack | ¥2,160 | $13.50 | Example: 3 × ¥620 + ¥300 snack; not a full child meal | 
+
+Examples are arithmetic baskets using assumed prices, not set menus. Restaurants may add a seating appetizer or service charge. [JNTO everyday cost guide ↗](https://www.japan.travel/en/guide/japan-on-a-budget/)
+
+Transport, activities & practical costsPer adult, bag or vehicle as stated; route-specific quotes still matter.
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| Tokyo Metro · adult single paper ticket | ¥180–330 | $1.12–$2.06 | Official ordinary range; some special intervals differ | 
+
+| Local city travel · adult/day | ¥600–1,500 | $3.75–$9.38 | Planning allowance for several rides; not a pass price | 
+
+| Taxi · short city hop, per car | ¥1,000–3,000 | $6.25–$18.75 | Planning allowance; distance, traffic, booking and night fees | 
+
+| Taxi · longer city ride, per car | ¥3,000–7,000 | $18.75–$43.75 | Planning allowance; use an actual route quote | 
+
+| Narita rail · adult one-way | ¥1,300–3,500 | $8.12–$21.88 | Planning range across service choices; supplements vary | 
+
+| Tokyo–Kanazawa rail · adult one-way | ¥14,000–17,000 | $87.50–$106.25 | Planning allowance, not a quoted ticket; date/train/seat matter | 
+
+| Station locker · bag/day | ¥400–1,000 | $2.50–$6.25 | Planning allowance; size and station | 
+
+| Luggage forwarding · one suitcase | ¥2,000–4,000 | $12.50–$25.00 | Planning allowance; dimensions, destination and timing | 
+
+| Self-service wash + dry · load | ¥500–1,200 | $3.12–$7.50 | Planning allowance; machine and drying time | 
+
+| Mobile data · trip package | ¥1,500–6,000 | $9.38–$37.50 | Planning allowance; provider, duration and GB | 
+
+| Garden / small temple entry · adult | ¥300–1,000 | $1.88–$6.25 | Planning allowance; free grounds also exist | 
+
+| Museum / exhibition · adult | ¥500–2,500 | $3.12–$15.62 | Planning allowance; special exhibitions extra | 
+
+| Aquarium / large attraction · adult | ¥2,500–5,000 | $15.62–$31.25 | Planning allowance; actual date and venue | 
+
+| Toy Museum · adult online / counter | ¥1,100–1,300 | $6.88–$8.12 | Official current admission; capacity/calendar apply | 
+
+| Toy Museum · child online / counter | ¥800–1,000 | $5.00–$6.25 | Official current admission for age 6 months through elementary | 
+
+| Souvenir toy / character item | ¥500–3,000 | $3.12–$18.75 | Planning allowance; sets and premium toys higher | 
+
+Most rows are broad planning allowances. Tokyo Metro and Toy Museum rows use official current figures. Child fares depend on age, operator and whether a reserved seat is used; do not automatically multiply adult fares by four.
+
+[Tokyo Metro fares ↗](https://www.tokyometro.jp/lang_en/ticket/types/regular/index.html) · [Tokyo Toy Museum admission ↗](https://art-play.or.jp/ttm/en/)
+
+Shopping price rangesClothing, denim, glasses, watches, craft and electronics.
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| Basic T-shirt | ¥1,000–3,000 | $6.25–$18.75 | Planning range; high-street basics | 
+
+| Premium / loopwheel T-shirt | ¥6,000–15,000 | $37.50–$93.75 | Planning range; fabric, maker and stock | 
+
+| Casual shirt | ¥4,000–12,000 | $25.00–$75.00 | Planning range | 
+
+| Heritage / specialist shirt | ¥15,000–35,000 | $93.75–$218.75 | Planning range | 
+
+| Basic jeans / chinos | ¥4,000–8,000 | $25.00–$50.00 | Planning range; check inseam before trying on | 
+
+| Japanese selvedge denim | ¥20,000–45,000 | $125.00–$281.25 | Planning range; special runs can exceed it | 
+
+| Iron Heart 634S-BK · specific example | ¥34,100 | $213.12 | Official tax-inclusive listing; not a stock promise | 
+
+| Vintage denim / Americana | ¥5,000–50,000 | $31.25–$312.50 | Planning range; rare collectible pieces can be far higher | 
+
+| Sneakers · standard/premium | ¥10,000–25,000 | $62.50–$156.25 | Planning range; size availability matters | 
+
+| Boots / specialist footwear | ¥25,000–70,000 | $156.25–$437.50 | Planning range; artisan models can exceed your item ceiling | 
+
+| Socks · pair | ¥300–1,800 | $1.88–$11.25 | Planning range; check printed cm range | 
+
+| Rain shell | ¥8,000–35,000 | $50.00–$218.75 | Planning range; technical fabrics higher | 
+
+| Denim / work jacket | ¥20,000–60,000 | $125.00–$375.00 | Planning range; check shoulders, sleeves and layering | 
+
+| Leather belt | ¥4,000–15,000 | $25.00–$93.75 | Planning range; use middle-hole length, not total length | 
+
+| Day bag / backpack | ¥5,000–25,000 | $31.25–$156.25 | Planning range | 
+
+| Premium Japanese bag | ¥20,000–60,000 | $125.00–$375.00 | Planning range; larger leather bags can exceed it | 
+
+| Basic prescription glasses | ¥6,000–15,000 | $37.50–$93.75 | Planning allowance; quote frame + your lenses together | 
+
+| Special lenses / premium glasses | ¥15,000–45,000 | $93.75–$281.25 | Planning allowance; prescription and lead time vary | 
+
+| Everyday quartz watch | ¥5,000–30,000 | $31.25–$187.50 | Planning range | 
+
+| Entry mechanical / enthusiast watch | ¥25,000–75,000 | $156.25–$468.75 | Planning range; many watches cost much more | 
+
+| Notebook / stationery | ¥300–3,000 | $1.88–$18.75 | Planning range | 
+
+| Custom notebook / fountain pen | ¥3,000–15,000 | $18.75–$93.75 | Planning range; options and nibs matter | 
+
+| Kitchen knife | ¥8,000–30,000 | $50.00–$187.50 | Planning range; premium work above this; checked luggage for flight | 
+
+| Craft ceramics / small woodwork | ¥1,000–10,000 | $6.25–$62.50 | Planning range; allow safe packing | 
+
+| Haircut / barber | ¥4,000–10,000 | $25.00–$62.50 | Planning range; branch, shave and services | 
+
+| Cable / power bank / small electronics | ¥1,500–8,000 | $9.38–$50.00 | Planning range; check specifications and airline battery limits | 
+
+| Used camera / larger electronics | ¥20,000–80,000 | $125.00–$500.00 | Planning range; condition, warranty and language vary | 
+
+Broad tax-inclusive planning allowances, not live offers. Rare vintage, luxury watches and specialist cameras can cost far more. The Iron Heart row is a specific official listed-price example, not confirmed inventory. The US$500 ceiling applies to each item, with no overall shopping cap set.
+
+[Iron Heart Japan 634S-BK: price and measurements ↗](https://www.ironheart.jp/products/634s-bk) · [Open your shopping tracker →](#p6)
+
+What a day could costIllustrative totals to give prices context.
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| Simple day · adult | ¥4,500 | $28.12 | Example: ¥700 breakfast + ¥1,200 lunch + ¥1,800 dinner + ¥800 transport | 
+
+| Comfortable outing · adult | ¥8,500 | $53.12 | Example: ¥1,000 breakfast + ¥1,800 lunch + ¥3,000 dinner + ¥700 café + ¥1,000 transport + ¥1,000 entry | 
+
+| Premium outing · adult | ¥15,000 | $93.75 | Example: ¥1,200 breakfast + ¥2,500 lunch + ¥7,000 dinner + ¥800 café + ¥1,500 transport + ¥2,000 entry | 
+
+| Three adults · comfortable example | ¥25,500 | $159.38 | 3 × ¥8,500; add Amalia’s actual meals/tickets; not a four-person quote | 
+
+These scenarios exclude accommodation, flights, intercity trains, airport transfers, shopping and unexpected costs. They are not a required budget or a forecast of your spending.
+
+Paying, tax & avoiding price surprisesUseful price-label vocabulary and checkout decisions.
+
+Read 税込 (tax included), 税抜 (tax excluded). A ¥10,000 item before 10% tax is ¥11,000. A ¥11,000 tax-inclusive price without that tax is ¥10,000—not ¥9,900.
+
+Tax-free shopping for your dates: your September 25–October 6 trip is before the November 1, 2026 switch to departure-verified refunds. Use participating shops and bring your original passport; eligibility, thresholds and store fees apply. Keep receipts. Follow packaging/use rules for tax-free consumables.
+
+JPY vs USD at checkout: paying in JPY leaves conversion to your card provider. A USD offer is the merchant/ATM’s conversion; compare its disclosed rate and markup. A card’s foreign-transaction fee may still apply. The calculator’s fee is an estimate, not your bank’s confirmed fee.
+
+Cash: Seven Bank supports overseas cards; acceptance, ATM fees and your bank’s fees vary. Read the withdrawal screen before confirming. Avoid taking a credit-card cash advance without knowing its terms.
+
+Tipping: generally not expected. Pay the stated bill; service or seating charges are different from tips.
+
+Suica / PASMO: think of a top-up as money moved to a transport wallet, not another travel expense on top of each fare. Cash top-up needs and card support differ by device and operator.
+
+At the counter: check the final total, receipt, warranty, return policy and any alteration/collection deadline before paying. Tax-free shopping is not a guarantee of the lowest worldwide price.
+
+[Japan Tourism Agency tax-free rules ↗](https://www.mlit.go.jp/kankocho/tax-free/page01_000113.html) · [JNTO November 2026 tax-free change ↗](https://www.japan.travel/en/plan/japans-tax-exemption/) · [Seven Bank currency choice ↗](https://www.sevenbank.co.jp/oos/adv/intlcard02/jp/) · [JNTO tipping guidance ↗](https://www.japan.travel/en/faq/)
+
+Your shopping fit: W34 × L34, US 13, Adidas L/XLThe waist is not the main obstacle; length, cut and stocked sizes matter.
+
+Waist: workableW34 = 86.36 cm mathematically. Your actual waistband and body measurements may differ.
+Length: check firstL34 = 86.36 cm inseam. Ask for at least your measured finished length before trying on.
+Shoes: ask aheadUS men’s 13 maps to JP 31 / 310 in the Adidas, Nike and Salomon charts below.
+My assessment: you can still shop meaningfully, especially for denim, tees, bags, glasses, watches and craft. Long trousers, fitted jackets and shoes need more deliberate size checks. Store stock has not been checked.
+
+Tops: US Adidas L/XL is a starting clue, not a Japanese size. Try Japan XL or XXL first where available, then compare actual chest, shoulder, body and sleeve measurements. Some relaxed Ls may work; some brand XXL garments may not.
+
+UNIQLO: its US guidance acknowledges regional size differences; Japan lists XS and XXL–4XL as online-only sizes. Verify the specific item and pickup/delivery timing—do not assume every store has larger sizes.
+
+Shoes: search or ask for 31.0 cm before browsing colors. ABC-MART offers a 31 cm catalog filter, which does not establish stock in a particular shop. Bring your comfortable walking shoes; treat new shoes as an optional purchase.
+
+Denim: ask for unhemmed or long-inseam stock. You may need different tagged waists across cuts. Try sitting and squatting, not just standing in front of a mirror.
+
+[UNIQLO Japan size availability ↗](https://faq.uniqlo.com/articles/Knowledge/100001541/?l=ja) · [UNIQLO international sizing differences ↗](https://faq-us.uniqlo.com/articles/en_US/FAQ/Does-sizing-differ-online-and-in-store) · [ABC-MART size-filtered catalog ↗](https://www.abc-mart.net/shop/)
+
+Specialty stores for larger shoes & clothingBig-B Ueno first; Gotanda, Sakazen and a conditional boots option.
+
+Start with Big-B Ueno. It fits your Ueno/Ameyoko time and specializes in large men’s shoes. The current catalog includes US13/31 cm sneakers and casual shoes. That is much stronger evidence than hoping a regular branch has your size.
+
+### Big-B Ueno · first choice
+
+Large-size shoe specialist
+Ueno 6-16-17, Taitō-ku, Tokyo
+11:00–19:30; closed Thursdays unless a public holiday. Phone 03-6284-4661.
+
+Combine with Ueno or Ameyoko. Your full Tokyo sightseeing dates are not Thursdays; recheck any special closure.
+
+[Map ↗](https://www.google.com/maps/search/?api=1&query=Big-B%20Ueno%20Ueno%206-16-17%2C%20Tait%C5%8D-ku%2C%20Tokyo) · [Big-B Ueno branch ↗](https://www.big-b.jp/shop/ueno.html)
+
+### Big-B Gotanda · second choice
+
+Larger specialist branch
+Nishi-Gotanda 2-4-2, Shinagawa-ku, Tokyo
+10:30–19:00 weekdays; 10:00–19:00 weekends. Normally daily except January 1–2. Phone 03-3494-1192.
+
+Make the extra journey if they confirm suitable models or widths. Do not assume both branches share stock.
+
+[Map ↗](https://www.google.com/maps/search/?api=1&query=Big-B%20Gotanda%20Nishi-Gotanda%202-4-2%2C%20Shinagawa-ku%2C%20Tokyo) · [Big-B Gotanda branch ↗](https://www.big-b.jp/shop/gotanda.html)
+
+### Sakazen Shinjuku · clothing + shoe backup
+
+Large-size clothing specialist with shoes
+Shinjuku 2-19-13, Shinjuku-ku, Tokyo
+11:00–20:00. Phone 0120-59-1641. Near Shinjuku-sanchōme C7.
+
+Pair with the Shinjuku outing. A current online shoe model has 31 cm variants; ask specifically about branch stock, color and width. Useful for tops too; extra width does not guarantee longer sleeves.
+
+[Map ↗](https://www.google.com/maps/search/?api=1&query=Sakazen%20Shinjuku%20Shinjuku%202-19-13%2C%20Shinjuku-ku%2C%20Tokyo) · [Sakazen Shinjuku branch ↗](https://www.sakazen.co.jp/shop/Shinjuku/)
+
+### FootMonkey · optional boots inquiry
+
+Americana / boots specialist, not a guaranteed large-size stop
+Ueno 6-3-8, Taitō-ku, Tokyo
+Phone 03-6806-0719. Confirm hours directly.
+
+Its US13 Red Wing outlet category exists, but the reviewed listings were sold out. Only plan a fitting after current stock confirmation; outlet condition and return rules matter.
+
+[Map ↗](https://www.google.com/maps/search/?api=1&query=FootMonkey%20Ueno%206-3-8%2C%20Tait%C5%8D-ku%2C%20Tokyo) · [FootMonkey US13 outlet listings ↗](https://footmonkey.jp/shopbrand/fs-size-130/)
+
+### What to ask before going
+
+Which sneakers, walking shoes or boots are physically in this branch in my size? Bring the label/photo of a pair that fits; US13 is not identical across brands.
+
+Can I try both regular and wider fits? Tell them your measured foot length and width, not just a generic US size.
+
+What is the tax-inclusive price, and are these new, outlet seconds or used?
+
+Big-B says branch transfers can take about a week and it does not offer holds. Ask early in the first Tokyo stay if you want possibilities for the return stay. Do not rely on a same-day transfer.
+
+| Item / unit | Yen estimate | Approx. USD | What changes it | 
+|  --- |  --- |  --- |  --- | 
+
+| Sneakers / walking shoes · shopping allowance | ¥8,000–30,000 | $50.00–$187.50 | Planning allowance, not a Big-B quote | 
+
+| Leather shoes / boots · shopping allowance | ¥20,000–70,000 | $125.00–$437.50 | Planning allowance; premium pairs can exceed US$500 | 
+
+Regular shops are a backup: ABC-MART’s 31 cm filter and brand websites can help locate a model, but an online size option is not a branch-stock promise. Check before visiting. No calls, reservations or stock holds have been made.
+
+31センチで、店頭で試着できる靴はありますか？Do you have shoes in size 31 cm that I can try on in the store?
+Branches and catalog evidence checked September 15, 2026. [Big-B current catalog and hours ↗](https://www.big-b.jp/) · [Big-B branch stock and transfer policy ↗](https://www.big-b.jp/faq.html) · [Sakazen shoe model with 31 cm variants ↗](https://www.sakazen.co.jp/item/3978200000/)
+
+Waist, inseam & denim fitExact measurements, shrinkage and alterations.
+
+Do not treat W34 as a measured 34-inch waistband. Brands use different labels, fits and measuring methods. Measure a washed pair that fits: waistband laid flat × 2, inseam along the inner seam, thigh, rise and hem width. Body waist and garment waist are different measurements.
+
+| Inches | Centimeters | Use | 
+|  --- |  --- |  --- | 
+
+| 28 in | 71.12 cm | Measurement conversion only | 
+
+| 29 in | 73.66 cm | Measurement conversion only | 
+
+| 30 in | 76.20 cm | Measurement conversion only | 
+
+| 31 in | 78.74 cm | Measurement conversion only | 
+
+| 32 in | 81.28 cm | Measurement conversion only | 
+
+| 33 in | 83.82 cm | Measurement conversion only | 
+
+| 34 in | 86.36 cm | Your stated waist and inseam | 
+
+| 35 in | 88.90 cm | Measurement conversion only | 
+
+| 36 in | 91.44 cm | Measurement conversion only | 
+
+| 38 in | 96.52 cm | Measurement conversion only | 
+
+| 40 in | 101.60 cm | Measurement conversion only | 
+
+Real Japanese denim example: Iron Heart’s one-wash 634S-BK lists W34 at 85.5 cm waist and 89.5 cm inseam; W36 at 90.5 cm waist with the same inseam. That illustrates available length, not a recommendation that this exact cut will fit or be stocked.
+
+Your 86.4 cm target: ask for the actual inseam in centimeters. An 82 cm inseam is about 32.3 inches and may be too short for your usual fit.
+
+Raw vs one-wash: ask whether the dimensions are before or after washing and how this exact fabric shrinks. Do not apply one shrink percentage to every denim.
+
+Hemming: finalize after discussing shrinkage, shoes and cuff preference. Extra length can usually be shortened; missing length cannot be added reliably.
+
+Vintage: measure every pair; prior washing and alterations can make the tag misleading. Check zipper, seams, repairs and return terms.
+
+[Iron Heart Japan 634S-BK: price and measurements ↗](https://www.ironheart.jp/products/634s-bk) · [UNIQLO garment and body measurements ↗](https://faq.uniqlo.com/articles/Knowledge/100004162/?l=ja)
+
+Convert any inch measurement
+34 inches = 86.36 cm.
+
+Men’s shoe conversionsUS 13 is around JP 31 in these brands; fit and stock are separate.
+
+| US men’s | Adidas JP cm / mm | Nike CM/JP | Salomon Japan order cm | 
+|  --- |  --- |  --- |  --- | 
+
+| 10 | 28 / 280 | 28 | 28 | 
+
+| 11 | 29 / 290 | 29 | 29 | 
+
+| 12 | 30 / 300 | 30 | 30 | 
+
+| 12.5 | 30.5 / 305 | 30.5 | 30.5 | 
+
+| 13 · yours | 31 / 310 | 31 | 31 | 
+
+| 13.5 | 31.5 / 315 | 31.5 | Check model | 
+
+| 14 | 32 / 320 | 32 | Check model | 
+
+Brand chart labels, not measured foot length. Nike explicitly distinguishes its CM/JP label from foot length. Salomon’s Japan chart pairs order size 31 with foot length 30.5 cm. Measure both feet wearing the intended socks and use the longer foot in the exact brand/model chart.
+
+For US 13, Adidas lists UK 12.5 / EU 48; Nike lists UK 12 / EU 47.5. Even UK/EU conversions differ.
+
+Check width as well as length; a longer shoe does not automatically solve a narrow toe box.
+
+JP 31 may be printed as 31.0 or 310. These are not three different shoe sizes.
+
+Check socks too: a pair labeled 25–27 cm is a poor starting point for a JP 31 shoe. Look for an appropriate larger range.
+
+[Adidas men’s shoe chart ↗](https://www.adidas.com/us/help/size_charts/shoes) · [Nike men’s shoe chart ↗](https://www.nike.com/size-fit/mens-footwear) · [Salomon Japan shoe chart ↗](https://salomon.jp/pages/sizing-charts)
+
+Tops, jackets & Japanese size labelsUse L/XL only to start the conversation.
+
+| Label | Reference | How to use it | 
+|  --- |  --- |  --- | 
+
+| Adidas US L | 39½–42½ in / about 100–108 cm | Manufacturer body-chest range; not your measured chest | 
+
+| Adidas US XL | 43–46½ in / about 109–118 cm | Manufacturer body-chest range; not garment width | 
+
+| Japanese L / XL / XXL | No universal US equivalent | Use the exact product’s chart and try on | 
+
+| LL / 2L | Often an XL-style label | Brand conventions vary; verify dimensions | 
+
+| 3L / 4L | Larger-size labels | Do not assume a universal chest range | 
+
+| Free size / F | One offered size | Not a promise to fit every body | 
+
+| 1 / 2 / 3 / 4 or 40 / 42 / 44 | Brand-specific numbering | May refer to different systems; read the chart | 
+
+Best comparison: lay a favorite T-shirt flat and measure pit-to-pit width, shoulder seam-to-seam, body length and sleeve length. Compare garment measurements with garment measurements. For example, 58 cm pit-to-pit is roughly 116 cm around the garment; it is not a 116 cm body-chest recommendation. Leave the ease you already like.
+
+For jackets, try them over the layer you will wear. Raise your arms and reach forward: shoulders, sleeves and upper back can fail even when the chest buttons. An oversized cut can add width while still being too short.
+
+[Adidas US men’s top measurements ↗](https://www.adidas.com/us/help/size_charts/men-shirts_tops) · [UNIQLO garment and body measurements ↗](https://faq.uniqlo.com/articles/Knowledge/100004162/?l=ja)
+
+Accessories, family sizes & shop phrasesUseful beyond clothing labels.
+
+| Category | Measure / read | Remember | 
+|  --- |  --- |  --- | 
+
+| Belts | Measure buckle pin to the hole you use | A W34 jeans tag is not a guaranteed belt size; try near the middle hole | 
+
+| Hats | Head circumference in cm | Free size may have a limited adjustment range | 
+
+| Glasses | Copy numbers such as 52□18–145 from a good pair | Lens width, bridge, temple length in mm; low-bridge fit is a design option, not a nationality requirement | 
+
+| Watches | Measure wrist circumference | Check bracelet links, strap range and whether resizing is included | 
+
+| Women’s clothing | Use bust, waist, hip and height against the brand chart | Japanese 7/9/11/13 tags are not US numeric sizes; no guessed family measurements | 
+
+| Children’s clothing | Often labeled by height in cm (e.g., 100, 110) | Measure height; age three alone is not a size | 
+
+| Children’s shoes | Measure both feet in cm | Use the brand’s growth/fit guidance; do not reuse men’s US conversions | 
+
+31センチのサイズはありますか？Do you have size 31 cm?
+このパンツの股下は何センチですか？What is the inseam of these pants in centimeters?
+股下は約86センチ必要です。I need an inseam of about 86 cm.
+これより大きいサイズはありますか？Do you have a larger size?
+試着してもいいですか？May I try it on?
+洗うと縮みますか？Will it shrink when washed?
+裾上げはできますか？何日かかりますか？Can you hem these? How many days will it take?
+税込みでいくらですか？How much is it including tax?
+Your measurement notebookKeep actual dimensions and successful fits together.
+
+Measure before leaving, or fill these in after a successful try-on. Entries save only in this browser and in your exported progress file.
+
+Height · cmBody chest circumference · cmFavorite tee pit-to-pit · cmFavorite shirt shoulder width · cmFavorite shirt sleeve · cmFavorite tee body length · cmFavorite pants waistband · cmFavorite pants actual inseam · cmLonger foot length / width · cmKnown good shoe model + sizeSuccessful brands / cuts / sizes
+Sources & estimate notesWhat was verified, what remains a rough allowance.
+
+Reference review: September 15, 2026. The default FX rate is an editable round assumption, not a market quote. Cost ranges are planning estimates except rows explicitly identified as official examples. No stock, appointment, delivery time or bank fee is confirmed. Price checks do not imply food suitability. Size charts are brand-specific.
+
+[7-Eleven coffee menu ↗](https://www.sej.co.jp/products/sevencafe/include_commonarea.html)
+
+[7-Eleven rice balls ↗](https://www.sej.co.jp/products/a/onigiri/)
+
+[7-Eleven sandwiches ↗](https://www.sej.co.jp/products/a/itemresult/?key=%E3%82%B5%E3%83%B3%E3%83%89&limit=100&p=1)
+
+[7-Eleven meal boxes ↗](https://www.sej.co.jp/products/a/bento/)
+
+[JNTO everyday cost guide ↗](https://www.japan.travel/en/guide/japan-on-a-budget/)
+
+[Tokyo Metro fares ↗](https://www.tokyometro.jp/lang_en/ticket/types/regular/index.html)
+
+[Tokyo Toy Museum admission ↗](https://art-play.or.jp/ttm/en/)
+
+[Iron Heart Japan 634S-BK: price and measurements ↗](https://www.ironheart.jp/products/634s-bk)
+
+[Adidas men’s shoe chart ↗](https://www.adidas.com/us/help/size_charts/shoes)
+
+[Adidas US men’s top measurements ↗](https://www.adidas.com/us/help/size_charts/men-shirts_tops)
+
+[Nike men’s shoe chart ↗](https://www.nike.com/size-fit/mens-footwear)
+
+[Salomon Japan shoe chart ↗](https://salomon.jp/pages/sizing-charts)
+
+[UNIQLO Japan size availability ↗](https://faq.uniqlo.com/articles/Knowledge/100001541/?l=ja)
+
+[UNIQLO international sizing differences ↗](https://faq-us.uniqlo.com/articles/en_US/FAQ/Does-sizing-differ-online-and-in-store)
+
+[UNIQLO garment and body measurements ↗](https://faq.uniqlo.com/articles/Knowledge/100004162/?l=ja)
+
+[ABC-MART size-filtered catalog ↗](https://www.abc-mart.net/shop/)
+
+[Japan Tourism Agency tax-free rules ↗](https://www.mlit.go.jp/kankocho/tax-free/page01_000113.html)
+
+[JNTO November 2026 tax-free change ↗](https://www.japan.travel/en/plan/japans-tax-exemption/)
+
+[Seven Bank currency choice ↗](https://www.sevenbank.co.jp/oos/adv/intlcard02/jp/)
+
+[JNTO tipping guidance ↗](https://www.japan.travel/en/faq/)
+
+[Bank of Japan exchange-rate reference ↗](https://www.boj.or.jp/en/statistics/market/forex/fxdaily/fxlist/index.htm)
+
+[Big-B current catalog and hours ↗](https://www.big-b.jp/)
+
+[Big-B branch stock and transfer policy ↗](https://www.big-b.jp/faq.html)
+
+[Big-B Ueno branch ↗](https://www.big-b.jp/shop/ueno.html)
+
+[Big-B Gotanda branch ↗](https://www.big-b.jp/shop/gotanda.html)
+
+[Sakazen Shinjuku branch ↗](https://www.sakazen.co.jp/shop/Shinjuku/)
+
+[Sakazen shoe model with 31 cm variants ↗](https://www.sakazen.co.jp/item/3978200000/)
+
+[FootMonkey US13 outlet listings ↗](https://footmonkey.jp/shopbrand/fs-size-130/)
 
 booked locked shortlisted leading idea on radar TBD open buy there in Japan 
 Personal field guide · progress saves in this browser · export a backup to transfer progress
